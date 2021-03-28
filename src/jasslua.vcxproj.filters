@@ -1,0 +1,578 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="handle.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="event.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="widget.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="unit.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="destructable.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="item.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ability.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="buff.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="force.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="group.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="trigger.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="triggercondition.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="triggeraction.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="timer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="location.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="region.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="rect.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="boolexpr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="sound.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="conditionfunc.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="filterfunc.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="unitpool.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="itempool.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="race.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="alliancetype.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="racepreference.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="gamestate.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="igamestate.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="fgamestate.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="playerstate.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="playerscore.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="playergameresult.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="unitstate.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="aidifficulty.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="eventid.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="gameevent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="playerevent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="playerunitevent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="unitevent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="limitop.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="widgetevent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogevent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="unittype.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="gamespeed.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="gamedifficulty.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="gametype.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="mapflag.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="mapvisibility.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="mapsetting.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="mapdensity.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="mapcontrol.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="playerslotstate.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="volumegroup.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="camerafield.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="camerasetup.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="playercolor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="placement.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="startlocprio.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="raritycontrol.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="blendmode.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="texmapflags.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="effect.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="effecttype.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="weathereffect.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="terraindeformation.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="fogstate.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="fogmodifier.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dialog.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="button.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="quest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="questitem.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="defeatcondition.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="timerdialog.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="leaderboard.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="multiboard.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="multiboarditem.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="trackable.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="gamecache.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="version.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="itemtype.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="texttag.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="attacktype.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="damagetype.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="weapontype.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="soundtype.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="lightning.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pathingtype.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="image.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ubersplat.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="test.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="handle.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="event.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="widget.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="unit.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="destructable.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="item.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ability.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="buff.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="force.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="group.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="trigger.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="triggercondition.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="triggeraction.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="timer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="location.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="region.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="rect.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="boolexpr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="sound.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="conditionfunc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="filterfunc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="unitpool.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="itempool.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="race.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="alliancetype.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="racepreference.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="gamestate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="igamestate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="fgamestate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="playerstate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="playerscore.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="playergameresult.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="unitstate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="aidifficulty.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="eventid.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="gameevent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="playerevent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="playerunitevent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="unitevent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="limitop.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="widgetevent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dialogevent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="unittype.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="gamespeed.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="gamedifficulty.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="gametype.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mapflag.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mapvisibility.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mapsetting.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mapdensity.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mapcontrol.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="playerslotstate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="volumegroup.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="camerafield.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="camerasetup.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="playercolor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="placement.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="startlocprio.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="raritycontrol.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="blendmode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="texmapflags.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="effect.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="effecttype.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="weathereffect.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="terraindeformation.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="fogstate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="fogmodifier.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dialog.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="button.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="quest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="questitem.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="defeatcondition.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="timerdialog.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="leaderboard.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="multiboard.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="multiboarditem.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="trackable.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="gamecache.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="version.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="itemtype.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="texttag.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="attacktype.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="damagetype.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="weapontype.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="soundtype.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="lightning.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="pathingtype.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="image.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ubersplat.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\bin\player_script.lua" />
+    <None Include="..\bin\config.lua" />
+    <None Include="..\bin\prelude_script.lua" />
+  </ItemGroup>
+</Project>
