@@ -106,7 +106,10 @@
 void jass_types::jasslua_regist_types(sol::state_view lua)
 {
 	lua.new_usertype<handle>("handle",
-		"i", &handle::i);
+		//"i", &handle::i  如果有需要，单独加个 set_i 函数
+		"i", sol::readonly(&handle::i)
+		);
+
 	lua.new_usertype<event>("event", sol::base_classes, sol::bases<handle>());
 	lua.new_usertype<player>("player", sol::base_classes, sol::bases<handle>());
 	lua.new_usertype<widget>("widget", sol::base_classes, sol::bases<handle>());

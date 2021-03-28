@@ -1,3 +1,6 @@
 /src/x64
 /.vs
 *.ilk
+*.iobj
+*.ipdb
+*.pdb
