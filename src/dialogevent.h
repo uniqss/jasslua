@@ -4,5 +4,8 @@
 
 class dialogevent : public eventid
 {
+public:
+	dialogevent() {}
+	dialogevent(int i) : eventid(i) {}
 };
 

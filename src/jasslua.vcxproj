@@ -160,6 +160,7 @@
     <ClCompile Include="camerafield.cpp" />
     <ClCompile Include="camerasetup.cpp" />
     <ClCompile Include="conditionfunc.cpp" />
+    <ClCompile Include="convert.cpp" />
     <ClCompile Include="damagetype.cpp" />
     <ClCompile Include="defeatcondition.cpp" />
     <ClCompile Include="destructable.cpp" />
@@ -255,6 +256,7 @@
     <ClInclude Include="camerafield.h" />
     <ClInclude Include="camerasetup.h" />
     <ClInclude Include="conditionfunc.h" />
+    <ClInclude Include="convert.h" />
     <ClInclude Include="damagetype.h" />
     <ClInclude Include="defeatcondition.h" />
     <ClInclude Include="destructable.h" />

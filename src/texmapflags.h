@@ -4,5 +4,8 @@
 
 class texmapflags : public handle
 {
+public:
+	texmapflags() {}
+	texmapflags(int i) : handle(i) {}
 };
 

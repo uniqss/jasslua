@@ -4,5 +4,8 @@
 
 class camerafield : public handle
 {
+public:
+	camerafield() {}
+	camerafield(int i) : handle(i) {}
 };
 

@@ -4,5 +4,8 @@
 
 class igamestate : public gamestate
 {
+public:
+	igamestate() {}
+	igamestate(int i) : gamestate(i) {}
 };
 

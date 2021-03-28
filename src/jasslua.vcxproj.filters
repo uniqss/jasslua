@@ -294,6 +294,9 @@
     <ClCompile Include="jasslua_register.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="convert.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="test.h">
@@ -573,6 +576,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="jasslua_register.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="convert.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

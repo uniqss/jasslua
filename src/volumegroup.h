@@ -4,5 +4,8 @@
 
 class volumegroup : public handle
 {
+public:
+	volumegroup() {}
+	volumegroup(int i) : handle(i) {}
 };
 

@@ -4,5 +4,8 @@
 
 class mapsetting : public handle
 {
+public:
+	mapsetting() {}
+	mapsetting(int i) : handle(i) {}
 };
 

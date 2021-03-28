@@ -4,5 +4,8 @@
 
 class playerslotstate : public handle
 {
+public:
+	playerslotstate() {}
+	playerslotstate(int i) : handle(i) {}
 };
 

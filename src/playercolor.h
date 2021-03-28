@@ -4,5 +4,8 @@
 
 class playercolor : public handle
 {
+public:
+	playercolor() {}
+	playercolor(int i) : handle(i) {}
 };
 

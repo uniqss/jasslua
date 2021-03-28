@@ -4,5 +4,8 @@
 
 class alliancetype : public handle
 {
+public:
+	alliancetype() {}
+	alliancetype(int i) : handle(i) {}
 };
 

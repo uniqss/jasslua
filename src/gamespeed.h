@@ -4,5 +4,8 @@
 
 class gamespeed : public handle
 {
+public:
+	gamespeed() {}
+	gamespeed(int i) : handle(i) {}
 };
 

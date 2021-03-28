@@ -4,5 +4,8 @@
 
 class placement : public handle
 {
+public:
+	placement() {}
+	placement(int i) : handle(i) {}
 };
 

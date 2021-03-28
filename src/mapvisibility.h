@@ -4,5 +4,8 @@
 
 class mapvisibility : public handle
 {
+public:
+	mapvisibility() {}
+	mapvisibility(int i) : handle(i) {}
 };
 

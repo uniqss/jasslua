@@ -4,5 +4,8 @@
 
 class racepreference : public handle
 {
+public:
+	racepreference() {}
+	racepreference(int i) : handle(i) {}
 };
 
