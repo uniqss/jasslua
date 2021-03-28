@@ -187,6 +187,7 @@
     <ClCompile Include="item.cpp" />
     <ClCompile Include="itempool.cpp" />
     <ClCompile Include="itemtype.cpp" />
+    <ClCompile Include="jasslua_register.cpp" />
     <ClCompile Include="leaderboard.cpp" />
     <ClCompile Include="lightning.cpp" />
     <ClCompile Include="limitop.cpp" />
@@ -281,6 +282,7 @@
     <ClInclude Include="item.h" />
     <ClInclude Include="itempool.h" />
     <ClInclude Include="itemtype.h" />
+    <ClInclude Include="jasslua_register.h" />
     <ClInclude Include="leaderboard.h" />
     <ClInclude Include="lightning.h" />
     <ClInclude Include="limitop.h" />
@@ -340,6 +342,7 @@
     <None Include="..\bin\config.lua" />
     <None Include="..\bin\player_script.lua" />
     <None Include="..\bin\prelude_script.lua" />
+    <None Include="..\bin\test2.lua" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -291,6 +291,9 @@
     <ClCompile Include="ubersplat.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="jasslua_register.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="test.h">
@@ -569,10 +572,14 @@
     <ClInclude Include="ubersplat.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="jasslua_register.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\bin\player_script.lua" />
     <None Include="..\bin\config.lua" />
     <None Include="..\bin\prelude_script.lua" />
+    <None Include="..\bin\test2.lua" />
   </ItemGroup>
 </Project>
