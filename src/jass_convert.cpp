@@ -1,49 +1,5 @@
-#include "convert.h"
+#include "jass_convert.h"
 
-#include "race.h"
-#include "alliancetype.h"
-#include "racepreference.h"
-#include "igamestate.h"
-#include "fgamestate.h"
-#include "playerstate.h"
-#include "playerscore.h"
-#include "playergameresult.h"
-#include "unitstate.h"
-#include "aidifficulty.h"
-#include "gameevent.h"
-#include "playerevent.h"
-#include "playerunitevent.h"
-#include "widgetevent.h"
-#include "dialogevent.h"
-#include "unitevent.h"
-#include "limitop.h"
-#include "unittype.h"
-#include "gamespeed.h"
-#include "placement.h"
-#include "startlocprio.h"
-#include "gamedifficulty.h"
-#include "gametype.h"
-#include "mapflag.h"
-#include "mapvisibility.h"
-#include "mapsetting.h"
-#include "mapdensity.h"
-#include "mapcontrol.h"
-#include "playercolor.h"
-#include "playerslotstate.h"
-#include "volumegroup.h"
-#include "camerafield.h"
-#include "blendmode.h"
-#include "raritycontrol.h"
-#include "texmapflags.h"
-#include "fogstate.h"
-#include "effecttype.h"
-#include "version.h"
-#include "itemtype.h"
-#include "attacktype.h"
-#include "damagetype.h"
-#include "weapontype.h"
-#include "soundtype.h"
-#include "pathingtype.h"
 
 race ConvertRace(int i) { return race(i); }
 alliancetype ConvertAllianceType(int i) { return alliancetype(i); }
@@ -125,7 +81,7 @@ std::string GetObjectName(int objectId)
 	return "";
 }
 
-void convert::jasslua_regist_convert(sol::state_view lua)
+void jass_convert::jasslua_regist_convert(sol::state_view lua)
 {
 	lua.set_function("ConvertRace", &ConvertRace);
 	lua.set_function("ConvertAllianceType", &ConvertAllianceType);

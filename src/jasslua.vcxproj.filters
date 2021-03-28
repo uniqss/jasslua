@@ -291,10 +291,16 @@
     <ClCompile Include="ubersplat.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="jasslua_register.cpp">
+    <ClCompile Include="jass_convert.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="convert.cpp">
+    <ClCompile Include="jass_globals.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="jass_luastate.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="jass_types.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -575,10 +581,16 @@
     <ClInclude Include="ubersplat.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="jasslua_register.h">
+    <ClInclude Include="jass_convert.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="convert.h">
+    <ClInclude Include="jass_globals.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="jass_luastate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="jass_types.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -587,5 +599,6 @@
     <None Include="..\bin\config.lua" />
     <None Include="..\bin\prelude_script.lua" />
     <None Include="..\bin\test2.lua" />
+    <None Include="..\bin\test_globals.lua" />
   </ItemGroup>
 </Project>

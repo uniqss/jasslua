@@ -42,4 +42,4 @@ private:
 	int hp;
 };
 
-int test();
+int test(sol::state_view lua);

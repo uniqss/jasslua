@@ -106,22 +106,18 @@ int test2(sol::state_view lua)
 	return 0;
 }
 
-int test3(sol::state_view lua)
+int test_globals(sol::state_view lua)
 {
-	std::cout << __FUNCTION__ << " begin============================" << std::endl;
-
-	std::cout << __FUNCTION__ << " end ============================" << std::endl << std::endl;
+	lua.script_file("test_globals.lua");
 	return 0;
 }
 
-int test()
+int test(sol::state_view lua)
 {
-	sol::state lua;
-	lua.open_libraries(sol::lib::base);
+	//test1(lua);
+	//test2(lua);
 
-	test1(lua);
-	test2(lua);
-	test3(lua);
+	test_globals(lua);
 
 	return 0;
 }

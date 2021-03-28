@@ -10,6 +10,7 @@ type destructable       extends     widget
 type item               extends     widget
 type ability            extends     handle
 type buff               extends     ability
+
 type force              extends     handle
 type group              extends     handle
 type trigger            extends     handle
@@ -21,21 +22,26 @@ type region             extends     handle
 type rect               extends     handle
 type boolexpr           extends     handle
 type sound              extends     handle
+
 type conditionfunc      extends     boolexpr
 type filterfunc         extends     boolexpr
+
 type unitpool           extends     handle
 type itempool           extends     handle
 type race               extends     handle
 type alliancetype       extends     handle
 type racepreference     extends     handle
 type gamestate          extends     handle
+
 type igamestate         extends     gamestate
 type fgamestate         extends     gamestate
+
 type playerstate        extends     handle
 type playerscore        extends     handle
 type playergameresult   extends     handle
 type unitstate          extends     handle
 type aidifficulty       extends     handle
+
 
 type eventid            extends     handle
 type gameevent          extends     eventid
@@ -46,6 +52,7 @@ type limitop            extends     eventid
 type widgetevent        extends     eventid
 type dialogevent        extends     eventid
 type unittype           extends     handle
+
 
 type gamespeed          extends     handle
 type gamedifficulty     extends     handle
@@ -93,6 +100,7 @@ type lightning          extends     handle
 type pathingtype        extends     handle
 type image              extends     handle
 type ubersplat          extends     handle
+
 
 constant native ConvertRace                 takes integer i returns race
 constant native ConvertAllianceType         takes integer i returns alliancetype

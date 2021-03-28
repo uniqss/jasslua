@@ -120,6 +120,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>..\..\sol2\vendor\lua-5.3.5\src;..\..\sol2\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -160,7 +161,7 @@
     <ClCompile Include="camerafield.cpp" />
     <ClCompile Include="camerasetup.cpp" />
     <ClCompile Include="conditionfunc.cpp" />
-    <ClCompile Include="convert.cpp" />
+    <ClCompile Include="jass_convert.cpp" />
     <ClCompile Include="damagetype.cpp" />
     <ClCompile Include="defeatcondition.cpp" />
     <ClCompile Include="destructable.cpp" />
@@ -188,7 +189,9 @@
     <ClCompile Include="item.cpp" />
     <ClCompile Include="itempool.cpp" />
     <ClCompile Include="itemtype.cpp" />
-    <ClCompile Include="jasslua_register.cpp" />
+    <ClCompile Include="jass_types.cpp" />
+    <ClCompile Include="jass_globals.cpp" />
+    <ClCompile Include="jass_luastate.cpp" />
     <ClCompile Include="leaderboard.cpp" />
     <ClCompile Include="lightning.cpp" />
     <ClCompile Include="limitop.cpp" />
@@ -256,7 +259,7 @@
     <ClInclude Include="camerafield.h" />
     <ClInclude Include="camerasetup.h" />
     <ClInclude Include="conditionfunc.h" />
-    <ClInclude Include="convert.h" />
+    <ClInclude Include="jass_convert.h" />
     <ClInclude Include="damagetype.h" />
     <ClInclude Include="defeatcondition.h" />
     <ClInclude Include="destructable.h" />
@@ -284,7 +287,9 @@
     <ClInclude Include="item.h" />
     <ClInclude Include="itempool.h" />
     <ClInclude Include="itemtype.h" />
-    <ClInclude Include="jasslua_register.h" />
+    <ClInclude Include="jass_types.h" />
+    <ClInclude Include="jass_globals.h" />
+    <ClInclude Include="jass_luastate.h" />
     <ClInclude Include="leaderboard.h" />
     <ClInclude Include="lightning.h" />
     <ClInclude Include="limitop.h" />
@@ -345,6 +350,7 @@
     <None Include="..\bin\player_script.lua" />
     <None Include="..\bin\prelude_script.lua" />
     <None Include="..\bin\test2.lua" />
+    <None Include="..\bin\test_globals.lua" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
