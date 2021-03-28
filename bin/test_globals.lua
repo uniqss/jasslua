@@ -16,5 +16,12 @@ print(red == red2)
 print(red)
 print(red2)
 
-red.i = 123
-print(red.i)
+---red.i = 123
+---print(red.i)
+
+p1 = PLAYER_STATE_LUMBER_UPKEEP_RATE
+p2 = PLAYER_STATE_LUMBER_UPKEEP_RATE
+print(PLAYER_STATE_LUMBER_UPKEEP_RATE)
+print(PLAYER_STATE_LUMBER_UPKEEP_RATE.i)
+print(p1)
+print(p2)

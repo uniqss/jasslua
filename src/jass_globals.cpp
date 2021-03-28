@@ -190,7 +190,37 @@ const playerslotstate    PLAYER_SLOT_STATE_EMPTY = ConvertPlayerSlotState(0);
 const playerslotstate    PLAYER_SLOT_STATE_PLAYING = ConvertPlayerSlotState(1);
 const playerslotstate    PLAYER_SLOT_STATE_LEFT = ConvertPlayerSlotState(2);
 
+const volumegroup        SOUND_VOLUMEGROUP_UNITMOVEMENT = ConvertVolumeGroup(0);
+const volumegroup        SOUND_VOLUMEGROUP_UNITSOUNDS = ConvertVolumeGroup(1);
+const volumegroup        SOUND_VOLUMEGROUP_COMBAT = ConvertVolumeGroup(2);
+const volumegroup        SOUND_VOLUMEGROUP_SPELLS = ConvertVolumeGroup(3);
+const volumegroup        SOUND_VOLUMEGROUP_UI = ConvertVolumeGroup(4);
+const volumegroup        SOUND_VOLUMEGROUP_MUSIC = ConvertVolumeGroup(5);
+const volumegroup        SOUND_VOLUMEGROUP_AMBIENTSOUNDS = ConvertVolumeGroup(6);
+const volumegroup        SOUND_VOLUMEGROUP_FIRE = ConvertVolumeGroup(7);
 
+const igamestate GAME_STATE_DIVINE_INTERVENTION = ConvertIGameState(0);
+const igamestate GAME_STATE_DISCONNECTED = ConvertIGameState(1);
+const fgamestate GAME_STATE_TIME_OF_DAY = ConvertFGameState(2);
+
+const playerstate PLAYER_STATE_GAME_RESULT = ConvertPlayerState(0);
+
+const playerstate PLAYER_STATE_RESOURCE_GOLD = ConvertPlayerState(1);
+const playerstate PLAYER_STATE_RESOURCE_LUMBER = ConvertPlayerState(2);
+const playerstate PLAYER_STATE_RESOURCE_HERO_TOKENS = ConvertPlayerState(3);
+const playerstate PLAYER_STATE_RESOURCE_FOOD_CAP = ConvertPlayerState(4);
+const playerstate PLAYER_STATE_RESOURCE_FOOD_USED = ConvertPlayerState(5);
+const playerstate PLAYER_STATE_FOOD_CAP_CEILING = ConvertPlayerState(6);
+
+const playerstate PLAYER_STATE_GIVES_BOUNTY = ConvertPlayerState(7);
+const playerstate PLAYER_STATE_ALLIED_VICTORY = ConvertPlayerState(8);
+const playerstate PLAYER_STATE_PLACED = ConvertPlayerState(9);
+const playerstate PLAYER_STATE_OBSERVER_ON_DEATH = ConvertPlayerState(10);
+const playerstate PLAYER_STATE_OBSERVER = ConvertPlayerState(11);
+const playerstate PLAYER_STATE_UNFOLLOWABLE = ConvertPlayerState(12);
+
+const playerstate PLAYER_STATE_GOLD_UPKEEP_RATE = ConvertPlayerState(13);
+const playerstate PLAYER_STATE_LUMBER_UPKEEP_RATE = ConvertPlayerState(14);
 
 void jass_globals::jasslua_regist_globals(sol::state_view lua)
 {
@@ -382,5 +412,38 @@ void jass_globals::jasslua_regist_globals(sol::state_view lua)
 	lua.set("PLAYER_SLOT_STATE_EMPTY", PLAYER_SLOT_STATE_EMPTY);
 	lua.set("PLAYER_SLOT_STATE_PLAYING", PLAYER_SLOT_STATE_PLAYING);
 	lua.set("PLAYER_SLOT_STATE_LEFT", PLAYER_SLOT_STATE_LEFT);
+
+	lua.set("SOUND_VOLUMEGROUP_UNITMOVEMENT", SOUND_VOLUMEGROUP_UNITMOVEMENT);
+	lua.set("SOUND_VOLUMEGROUP_UNITSOUNDS", SOUND_VOLUMEGROUP_UNITSOUNDS);
+	lua.set("SOUND_VOLUMEGROUP_COMBAT", SOUND_VOLUMEGROUP_COMBAT);
+	lua.set("SOUND_VOLUMEGROUP_SPELLS", SOUND_VOLUMEGROUP_SPELLS);
+	lua.set("SOUND_VOLUMEGROUP_UI", SOUND_VOLUMEGROUP_UI);
+	lua.set("SOUND_VOLUMEGROUP_MUSIC", SOUND_VOLUMEGROUP_MUSIC);
+	lua.set("SOUND_VOLUMEGROUP_AMBIENTSOUNDS", SOUND_VOLUMEGROUP_AMBIENTSOUNDS);
+	lua.set("SOUND_VOLUMEGROUP_FIRE", SOUND_VOLUMEGROUP_FIRE);
+
+	lua.set("GAME_STATE_DIVINE_INTERVENTION", GAME_STATE_DIVINE_INTERVENTION);
+	lua.set("GAME_STATE_DISCONNECTED", GAME_STATE_DISCONNECTED);
+	lua.set("GAME_STATE_TIME_OF_DAY", GAME_STATE_TIME_OF_DAY);
+
+	lua.set("PLAYER_STATE_GAME_RESULT", PLAYER_STATE_GAME_RESULT);
+
+	lua.set("PLAYER_STATE_RESOURCE_GOLD", PLAYER_STATE_RESOURCE_GOLD);
+	lua.set("PLAYER_STATE_RESOURCE_LUMBER", PLAYER_STATE_RESOURCE_LUMBER);
+	lua.set("PLAYER_STATE_RESOURCE_HERO_TOKENS", PLAYER_STATE_RESOURCE_HERO_TOKENS);
+	lua.set("PLAYER_STATE_RESOURCE_FOOD_CAP", PLAYER_STATE_RESOURCE_FOOD_CAP);
+	lua.set("PLAYER_STATE_RESOURCE_FOOD_USED", PLAYER_STATE_RESOURCE_FOOD_USED);
+	lua.set("PLAYER_STATE_FOOD_CAP_CEILING", PLAYER_STATE_FOOD_CAP_CEILING);
+
+	lua.set("PLAYER_STATE_GIVES_BOUNTY", PLAYER_STATE_GIVES_BOUNTY);
+	lua.set("PLAYER_STATE_ALLIED_VICTORY", PLAYER_STATE_ALLIED_VICTORY);
+	lua.set("PLAYER_STATE_PLACED", PLAYER_STATE_PLACED);
+	lua.set("PLAYER_STATE_OBSERVER_ON_DEATH", PLAYER_STATE_OBSERVER_ON_DEATH);
+	lua.set("PLAYER_STATE_OBSERVER", PLAYER_STATE_OBSERVER);
+	lua.set("PLAYER_STATE_UNFOLLOWABLE", PLAYER_STATE_UNFOLLOWABLE);
+
+	lua.set("PLAYER_STATE_GOLD_UPKEEP_RATE", PLAYER_STATE_GOLD_UPKEEP_RATE);
+	lua.set("PLAYER_STATE_LUMBER_UPKEEP_RATE", PLAYER_STATE_LUMBER_UPKEEP_RATE);
+
 
 }
