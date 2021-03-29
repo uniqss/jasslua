@@ -303,6 +303,9 @@
     <ClCompile Include="jass_types.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="jass_globals_vars.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="test.h">
@@ -591,6 +594,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="jass_types.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="jass_globals_inc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="jass_globals_vars.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

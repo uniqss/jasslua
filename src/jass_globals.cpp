@@ -1,237 +1,18 @@
 #include "jass_globals.h"
-
-#include "jass_convert.h"
-
-const bool FALSE = false;
-const bool TRUE = true;
-const int JASS_MAX_ARRAY_SIZE = 8192;
-const int PLAYER_NEUTRAL_PASSIVE = 15;
-const int PLAYER_NEUTRAL_AGGRESSIVE = 12;
-
-const playercolor PLAYER_COLOR_RED = ConvertPlayerColor(0);
-const playercolor PLAYER_COLOR_BLUE = ConvertPlayerColor(1);
-const playercolor PLAYER_COLOR_CYAN = ConvertPlayerColor(2);
-const playercolor PLAYER_COLOR_PURPLE = ConvertPlayerColor(3);
-const playercolor PLAYER_COLOR_YELLOW = ConvertPlayerColor(4);
-const playercolor PLAYER_COLOR_ORANGE = ConvertPlayerColor(5);
-const playercolor PLAYER_COLOR_GREEN = ConvertPlayerColor(6);
-const playercolor PLAYER_COLOR_PINK = ConvertPlayerColor(7);
-const playercolor PLAYER_COLOR_LIGHT_GRAY = ConvertPlayerColor(8);
-const playercolor PLAYER_COLOR_LIGHT_BLUE = ConvertPlayerColor(9);
-const playercolor PLAYER_COLOR_AQUA = ConvertPlayerColor(10);
-const playercolor PLAYER_COLOR_BROWN = ConvertPlayerColor(11);
-
-const race RACE_HUMAN = ConvertRace(1);
-const race RACE_ORC = ConvertRace(2);
-const race RACE_UNDEAD = ConvertRace(3);
-const race RACE_NIGHTELF = ConvertRace(4);
-const race RACE_DEMON = ConvertRace(5);
-const race RACE_OTHER = ConvertRace(7);
-
-const playergameresult   PLAYER_GAME_RESULT_VICTORY = ConvertPlayerGameResult(0);
-const playergameresult   PLAYER_GAME_RESULT_DEFEAT = ConvertPlayerGameResult(1);
-const playergameresult   PLAYER_GAME_RESULT_TIE = ConvertPlayerGameResult(2);
-const playergameresult   PLAYER_GAME_RESULT_NEUTRAL = ConvertPlayerGameResult(3);
-
-const alliancetype       ALLIANCE_PASSIVE = ConvertAllianceType(0);
-const alliancetype       ALLIANCE_HELP_REQUEST = ConvertAllianceType(1);
-const alliancetype       ALLIANCE_HELP_RESPONSE = ConvertAllianceType(2);
-const alliancetype       ALLIANCE_SHARED_XP = ConvertAllianceType(3);
-const alliancetype       ALLIANCE_SHARED_SPELLS = ConvertAllianceType(4);
-const alliancetype       ALLIANCE_SHARED_VISION = ConvertAllianceType(5);
-const alliancetype       ALLIANCE_SHARED_CONTROL = ConvertAllianceType(6);
-const alliancetype       ALLIANCE_SHARED_ADVANCED_CONTROL = ConvertAllianceType(7);
-const alliancetype       ALLIANCE_RESCUABLE = ConvertAllianceType(8);
-const alliancetype       ALLIANCE_SHARED_VISION_FORCED = ConvertAllianceType(9);
-
-const version            VERSION_REIGN_OF_CHAOS = ConvertVersion(0);
-const version            VERSION_FROZEN_THRONE = ConvertVersion(1);
-
-const attacktype         ATTACK_TYPE_NORMAL = ConvertAttackType(0);
-const attacktype         ATTACK_TYPE_MELEE = ConvertAttackType(1);
-const attacktype         ATTACK_TYPE_PIERCE = ConvertAttackType(2);
-const attacktype         ATTACK_TYPE_SIEGE = ConvertAttackType(3);
-const attacktype         ATTACK_TYPE_MAGIC = ConvertAttackType(4);
-const attacktype         ATTACK_TYPE_CHAOS = ConvertAttackType(5);
-const attacktype         ATTACK_TYPE_HERO = ConvertAttackType(6);
-
-const damagetype         DAMAGE_TYPE_UNKNOWN = ConvertDamageType(0);
-const damagetype         DAMAGE_TYPE_NORMAL = ConvertDamageType(4);
-const damagetype         DAMAGE_TYPE_ENHANCED = ConvertDamageType(5);
-const damagetype         DAMAGE_TYPE_FIRE = ConvertDamageType(8);
-const damagetype         DAMAGE_TYPE_COLD = ConvertDamageType(9);
-const damagetype         DAMAGE_TYPE_LIGHTNING = ConvertDamageType(10);
-const damagetype         DAMAGE_TYPE_POISON = ConvertDamageType(11);
-const damagetype         DAMAGE_TYPE_DISEASE = ConvertDamageType(12);
-const damagetype         DAMAGE_TYPE_DIVINE = ConvertDamageType(13);
-const damagetype         DAMAGE_TYPE_MAGIC = ConvertDamageType(14);
-const damagetype         DAMAGE_TYPE_SONIC = ConvertDamageType(15);
-const damagetype         DAMAGE_TYPE_ACID = ConvertDamageType(16);
-const damagetype         DAMAGE_TYPE_FORCE = ConvertDamageType(17);
-const damagetype         DAMAGE_TYPE_DEATH = ConvertDamageType(18);
-const damagetype         DAMAGE_TYPE_MIND = ConvertDamageType(19);
-const damagetype         DAMAGE_TYPE_PLANT = ConvertDamageType(20);
-const damagetype         DAMAGE_TYPE_DEFENSIVE = ConvertDamageType(21);
-const damagetype         DAMAGE_TYPE_DEMOLITION = ConvertDamageType(22);
-const damagetype         DAMAGE_TYPE_SLOW_POISON = ConvertDamageType(23);
-const damagetype         DAMAGE_TYPE_SPIRIT_LINK = ConvertDamageType(24);
-const damagetype         DAMAGE_TYPE_SHADOW_STRIKE = ConvertDamageType(25);
-const damagetype         DAMAGE_TYPE_UNIVERSAL = ConvertDamageType(26);
-
-const weapontype         WEAPON_TYPE_WHOKNOWS = ConvertWeaponType(0);
-const weapontype         WEAPON_TYPE_METAL_LIGHT_CHOP = ConvertWeaponType(1);
-const weapontype         WEAPON_TYPE_METAL_MEDIUM_CHOP = ConvertWeaponType(2);
-const weapontype         WEAPON_TYPE_METAL_HEAVY_CHOP = ConvertWeaponType(3);
-const weapontype         WEAPON_TYPE_METAL_LIGHT_SLICE = ConvertWeaponType(4);
-const weapontype         WEAPON_TYPE_METAL_MEDIUM_SLICE = ConvertWeaponType(5);
-const weapontype         WEAPON_TYPE_METAL_HEAVY_SLICE = ConvertWeaponType(6);
-const weapontype         WEAPON_TYPE_METAL_MEDIUM_BASH = ConvertWeaponType(7);
-const weapontype         WEAPON_TYPE_METAL_HEAVY_BASH = ConvertWeaponType(8);
-const weapontype         WEAPON_TYPE_METAL_MEDIUM_STAB = ConvertWeaponType(9);
-const weapontype         WEAPON_TYPE_METAL_HEAVY_STAB = ConvertWeaponType(10);
-const weapontype         WEAPON_TYPE_WOOD_LIGHT_SLICE = ConvertWeaponType(11);
-const weapontype         WEAPON_TYPE_WOOD_MEDIUM_SLICE = ConvertWeaponType(12);
-const weapontype         WEAPON_TYPE_WOOD_HEAVY_SLICE = ConvertWeaponType(13);
-const weapontype         WEAPON_TYPE_WOOD_LIGHT_BASH = ConvertWeaponType(14);
-const weapontype         WEAPON_TYPE_WOOD_MEDIUM_BASH = ConvertWeaponType(15);
-const weapontype         WEAPON_TYPE_WOOD_HEAVY_BASH = ConvertWeaponType(16);
-const weapontype         WEAPON_TYPE_WOOD_LIGHT_STAB = ConvertWeaponType(17);
-const weapontype         WEAPON_TYPE_WOOD_MEDIUM_STAB = ConvertWeaponType(18);
-const weapontype         WEAPON_TYPE_CLAW_LIGHT_SLICE = ConvertWeaponType(19);
-const weapontype         WEAPON_TYPE_CLAW_MEDIUM_SLICE = ConvertWeaponType(20);
-const weapontype         WEAPON_TYPE_CLAW_HEAVY_SLICE = ConvertWeaponType(21);
-const weapontype         WEAPON_TYPE_AXE_MEDIUM_CHOP = ConvertWeaponType(22);
-const weapontype         WEAPON_TYPE_ROCK_HEAVY_BASH = ConvertWeaponType(23);
-
-const pathingtype        PATHING_TYPE_ANY = ConvertPathingType(0);
-const pathingtype        PATHING_TYPE_WALKABILITY = ConvertPathingType(1);
-const pathingtype        PATHING_TYPE_FLYABILITY = ConvertPathingType(2);
-const pathingtype        PATHING_TYPE_BUILDABILITY = ConvertPathingType(3);
-const pathingtype        PATHING_TYPE_PEONHARVESTPATHING = ConvertPathingType(4);
-const pathingtype        PATHING_TYPE_BLIGHTPATHING = ConvertPathingType(5);
-const pathingtype        PATHING_TYPE_FLOATABILITY = ConvertPathingType(6);
-const pathingtype        PATHING_TYPE_AMPHIBIOUSPATHING = ConvertPathingType(7);
-
-const racepreference     RACE_PREF_HUMAN = ConvertRacePref(1);
-const racepreference     RACE_PREF_ORC = ConvertRacePref(2);
-const racepreference     RACE_PREF_NIGHTELF = ConvertRacePref(4);
-const racepreference     RACE_PREF_UNDEAD = ConvertRacePref(8);
-const racepreference     RACE_PREF_DEMON = ConvertRacePref(16);
-const racepreference     RACE_PREF_RANDOM = ConvertRacePref(32);
-const racepreference     RACE_PREF_USER_SELECTABLE = ConvertRacePref(64);
-
-const mapcontrol         MAP_CONTROL_USER = ConvertMapControl(0);
-const mapcontrol         MAP_CONTROL_COMPUTER = ConvertMapControl(1);
-const mapcontrol         MAP_CONTROL_RESCUABLE = ConvertMapControl(2);
-const mapcontrol         MAP_CONTROL_NEUTRAL = ConvertMapControl(3);
-const mapcontrol         MAP_CONTROL_CREEP = ConvertMapControl(4);
-const mapcontrol         MAP_CONTROL_NONE = ConvertMapControl(5);
-
-const gametype           GAME_TYPE_MELEE = ConvertGameType(1);
-const gametype           GAME_TYPE_FFA = ConvertGameType(2);
-const gametype           GAME_TYPE_USE_MAP_SETTINGS = ConvertGameType(4);
-const gametype           GAME_TYPE_BLIZ = ConvertGameType(8);
-const gametype           GAME_TYPE_ONE_ON_ONE = ConvertGameType(16);
-const gametype           GAME_TYPE_TWO_TEAM_PLAY = ConvertGameType(32);
-const gametype           GAME_TYPE_THREE_TEAM_PLAY = ConvertGameType(64);
-const gametype           GAME_TYPE_FOUR_TEAM_PLAY = ConvertGameType(128);
-
-const mapflag            MAP_FOG_HIDE_TERRAIN = ConvertMapFlag(1);
-const mapflag            MAP_FOG_MAP_EXPLORED = ConvertMapFlag(2);
-const mapflag            MAP_FOG_ALWAYS_VISIBLE = ConvertMapFlag(4);
-
-const mapflag            MAP_USE_HANDICAPS = ConvertMapFlag(8);
-const mapflag            MAP_OBSERVERS = ConvertMapFlag(16);
-const mapflag            MAP_OBSERVERS_ON_DEATH = ConvertMapFlag(32);
-
-const mapflag            MAP_FIXED_COLORS = ConvertMapFlag(128);
-const mapflag            MAP_LOCK_RESOURCE_TRADING = ConvertMapFlag(256);
-const mapflag            MAP_RESOURCE_TRADING_ALLIES_ONLY = ConvertMapFlag(512);
-
-const mapflag            MAP_LOCK_ALLIANCE_CHANGES = ConvertMapFlag(1024);
-const mapflag            MAP_ALLIANCE_CHANGES_HIDDEN = ConvertMapFlag(2048);
-
-const mapflag            MAP_CHEATS = ConvertMapFlag(4096);
-const mapflag            MAP_CHEATS_HIDDEN = ConvertMapFlag(8192);
-
-const mapflag            MAP_LOCK_SPEED = ConvertMapFlag(8192 * 2);
-const mapflag            MAP_LOCK_RANDOM_SEED = ConvertMapFlag(8192 * 4);
-const mapflag            MAP_SHARED_ADVANCED_CONTROL = ConvertMapFlag(8192 * 8);
-const mapflag            MAP_RANDOM_HERO = ConvertMapFlag(8192 * 16);
-const mapflag            MAP_RANDOM_RACES = ConvertMapFlag(8192 * 32);
-const mapflag            MAP_RELOADED = ConvertMapFlag(8192 * 64);
-
-const placement          MAP_PLACEMENT_RANDOM = ConvertPlacement(0);   // random among all slots
-const placement          MAP_PLACEMENT_FIXED = ConvertPlacement(1);   // player 0 in start loc 0...
-const placement          MAP_PLACEMENT_USE_MAP_SETTINGS = ConvertPlacement(2);   // whatever was specified by the script
-const placement          MAP_PLACEMENT_TEAMS_TOGETHER = ConvertPlacement(3);   // random with allies next to each other    
-
-const startlocprio       MAP_LOC_PRIO_LOW = ConvertStartLocPrio(0);
-const startlocprio       MAP_LOC_PRIO_HIGH = ConvertStartLocPrio(1);
-const startlocprio       MAP_LOC_PRIO_NOT = ConvertStartLocPrio(2);
-
-const mapdensity         MAP_DENSITY_NONE = ConvertMapDensity(0);
-const mapdensity         MAP_DENSITY_LIGHT = ConvertMapDensity(1);
-const mapdensity         MAP_DENSITY_MEDIUM = ConvertMapDensity(2);
-const mapdensity         MAP_DENSITY_HEAVY = ConvertMapDensity(3);
-
-const gamedifficulty     MAP_DIFFICULTY_EASY = ConvertGameDifficulty(0);
-const gamedifficulty     MAP_DIFFICULTY_NORMAL = ConvertGameDifficulty(1);
-const gamedifficulty     MAP_DIFFICULTY_HARD = ConvertGameDifficulty(2);
-const gamedifficulty     MAP_DIFFICULTY_INSANE = ConvertGameDifficulty(3);
-
-const gamespeed          MAP_SPEED_SLOWEST = ConvertGameSpeed(0);
-const gamespeed          MAP_SPEED_SLOW = ConvertGameSpeed(1);
-const gamespeed          MAP_SPEED_NORMAL = ConvertGameSpeed(2);
-const gamespeed          MAP_SPEED_FAST = ConvertGameSpeed(3);
-const gamespeed          MAP_SPEED_FASTEST = ConvertGameSpeed(4);
-
-const playerslotstate    PLAYER_SLOT_STATE_EMPTY = ConvertPlayerSlotState(0);
-const playerslotstate    PLAYER_SLOT_STATE_PLAYING = ConvertPlayerSlotState(1);
-const playerslotstate    PLAYER_SLOT_STATE_LEFT = ConvertPlayerSlotState(2);
-
-const volumegroup        SOUND_VOLUMEGROUP_UNITMOVEMENT = ConvertVolumeGroup(0);
-const volumegroup        SOUND_VOLUMEGROUP_UNITSOUNDS = ConvertVolumeGroup(1);
-const volumegroup        SOUND_VOLUMEGROUP_COMBAT = ConvertVolumeGroup(2);
-const volumegroup        SOUND_VOLUMEGROUP_SPELLS = ConvertVolumeGroup(3);
-const volumegroup        SOUND_VOLUMEGROUP_UI = ConvertVolumeGroup(4);
-const volumegroup        SOUND_VOLUMEGROUP_MUSIC = ConvertVolumeGroup(5);
-const volumegroup        SOUND_VOLUMEGROUP_AMBIENTSOUNDS = ConvertVolumeGroup(6);
-const volumegroup        SOUND_VOLUMEGROUP_FIRE = ConvertVolumeGroup(7);
-
-const igamestate GAME_STATE_DIVINE_INTERVENTION = ConvertIGameState(0);
-const igamestate GAME_STATE_DISCONNECTED = ConvertIGameState(1);
-const fgamestate GAME_STATE_TIME_OF_DAY = ConvertFGameState(2);
-
-const playerstate PLAYER_STATE_GAME_RESULT = ConvertPlayerState(0);
-
-const playerstate PLAYER_STATE_RESOURCE_GOLD = ConvertPlayerState(1);
-const playerstate PLAYER_STATE_RESOURCE_LUMBER = ConvertPlayerState(2);
-const playerstate PLAYER_STATE_RESOURCE_HERO_TOKENS = ConvertPlayerState(3);
-const playerstate PLAYER_STATE_RESOURCE_FOOD_CAP = ConvertPlayerState(4);
-const playerstate PLAYER_STATE_RESOURCE_FOOD_USED = ConvertPlayerState(5);
-const playerstate PLAYER_STATE_FOOD_CAP_CEILING = ConvertPlayerState(6);
-
-const playerstate PLAYER_STATE_GIVES_BOUNTY = ConvertPlayerState(7);
-const playerstate PLAYER_STATE_ALLIED_VICTORY = ConvertPlayerState(8);
-const playerstate PLAYER_STATE_PLACED = ConvertPlayerState(9);
-const playerstate PLAYER_STATE_OBSERVER_ON_DEATH = ConvertPlayerState(10);
-const playerstate PLAYER_STATE_OBSERVER = ConvertPlayerState(11);
-const playerstate PLAYER_STATE_UNFOLLOWABLE = ConvertPlayerState(12);
-
-const playerstate PLAYER_STATE_GOLD_UPKEEP_RATE = ConvertPlayerState(13);
-const playerstate PLAYER_STATE_LUMBER_UPKEEP_RATE = ConvertPlayerState(14);
-
-const playerstate PLAYER_STATE_GOLD_GATHERED = ConvertPlayerState(15);
-const playerstate PLAYER_STATE_LUMBER_GATHERED = ConvertPlayerState(16);
-
-const playerstate PLAYER_STATE_NO_CREEP_SLEEP = ConvertPlayerState(25);
+#include "jass_globals_vars.h"
 
 void jass_globals::jasslua_regist_globals(sol::state_view lua)
 {
+
+//===================================================
+// Game Constants    
+//===================================================
+
+    // pfff
 	lua.set("FALSE", FALSE);
 	lua.set("TRUE", TRUE);
 	lua.set("JASS_MAX_ARRAY_SIZE", JASS_MAX_ARRAY_SIZE);
+
 	lua.set("PLAYER_NEUTRAL_PASSIVE", PLAYER_NEUTRAL_PASSIVE);
 	lua.set("PLAYER_NEUTRAL_AGGRESSIVE", PLAYER_NEUTRAL_AGGRESSIVE);
 
@@ -339,6 +120,10 @@ void jass_globals::jasslua_regist_globals(sol::state_view lua)
 	lua.set("PATHING_TYPE_FLOATABILITY", PATHING_TYPE_FLOATABILITY);
 	lua.set("PATHING_TYPE_AMPHIBIOUSPATHING", PATHING_TYPE_AMPHIBIOUSPATHING);
 
+//===================================================
+// Map Setup Constants    
+//===================================================
+
 	lua.set("RACE_PREF_HUMAN", RACE_PREF_HUMAN);
 	lua.set("RACE_PREF_ORC", RACE_PREF_ORC);
 	lua.set("RACE_PREF_NIGHTELF", RACE_PREF_NIGHTELF);
@@ -372,7 +157,7 @@ void jass_globals::jasslua_regist_globals(sol::state_view lua)
 	lua.set("MAP_OBSERVERS_ON_DEATH", MAP_OBSERVERS_ON_DEATH);
 
 	lua.set("MAP_FIXED_COLORS", MAP_FIXED_COLORS);
-
+    
 	lua.set("MAP_LOCK_RESOURCE_TRADING", MAP_LOCK_RESOURCE_TRADING);
 	lua.set("MAP_RESOURCE_TRADING_ALLIES_ONLY", MAP_RESOURCE_TRADING_ALLIES_ONLY);
 
@@ -418,6 +203,9 @@ void jass_globals::jasslua_regist_globals(sol::state_view lua)
 	lua.set("PLAYER_SLOT_STATE_PLAYING", PLAYER_SLOT_STATE_PLAYING);
 	lua.set("PLAYER_SLOT_STATE_LEFT", PLAYER_SLOT_STATE_LEFT);
 
+//===================================================
+// Sound Constants
+//===================================================
 	lua.set("SOUND_VOLUMEGROUP_UNITMOVEMENT", SOUND_VOLUMEGROUP_UNITMOVEMENT);
 	lua.set("SOUND_VOLUMEGROUP_UNITSOUNDS", SOUND_VOLUMEGROUP_UNITSOUNDS);
 	lua.set("SOUND_VOLUMEGROUP_COMBAT", SOUND_VOLUMEGROUP_COMBAT);
@@ -427,12 +215,22 @@ void jass_globals::jasslua_regist_globals(sol::state_view lua)
 	lua.set("SOUND_VOLUMEGROUP_AMBIENTSOUNDS", SOUND_VOLUMEGROUP_AMBIENTSOUNDS);
 	lua.set("SOUND_VOLUMEGROUP_FIRE", SOUND_VOLUMEGROUP_FIRE);
 
+
+//===================================================
+// Game, Player, and Unit States
+//
+// For use with TriggerRegister<X>StateEvent
+//
+//===================================================
+
 	lua.set("GAME_STATE_DIVINE_INTERVENTION", GAME_STATE_DIVINE_INTERVENTION);
 	lua.set("GAME_STATE_DISCONNECTED", GAME_STATE_DISCONNECTED);
 	lua.set("GAME_STATE_TIME_OF_DAY", GAME_STATE_TIME_OF_DAY);
 
 	lua.set("PLAYER_STATE_GAME_RESULT", PLAYER_STATE_GAME_RESULT);
 
+    // current resource levels
+    //
 	lua.set("PLAYER_STATE_RESOURCE_GOLD", PLAYER_STATE_RESOURCE_GOLD);
 	lua.set("PLAYER_STATE_RESOURCE_LUMBER", PLAYER_STATE_RESOURCE_LUMBER);
 	lua.set("PLAYER_STATE_RESOURCE_HERO_TOKENS", PLAYER_STATE_RESOURCE_HERO_TOKENS);
@@ -447,11 +245,393 @@ void jass_globals::jasslua_regist_globals(sol::state_view lua)
 	lua.set("PLAYER_STATE_OBSERVER", PLAYER_STATE_OBSERVER);
 	lua.set("PLAYER_STATE_UNFOLLOWABLE", PLAYER_STATE_UNFOLLOWABLE);
 
+    // taxation rate for each resource
+    //
 	lua.set("PLAYER_STATE_GOLD_UPKEEP_RATE", PLAYER_STATE_GOLD_UPKEEP_RATE);
 	lua.set("PLAYER_STATE_LUMBER_UPKEEP_RATE", PLAYER_STATE_LUMBER_UPKEEP_RATE);
 
+    // cumulative resources collected by the player during the mission
+    //
 	lua.set("PLAYER_STATE_GOLD_GATHERED", PLAYER_STATE_GOLD_GATHERED);
 	lua.set("PLAYER_STATE_LUMBER_GATHERED", PLAYER_STATE_LUMBER_GATHERED);
 
 	lua.set("PLAYER_STATE_NO_CREEP_SLEEP", PLAYER_STATE_NO_CREEP_SLEEP);
+
+	lua.set("UNIT_STATE_LIFE", UNIT_STATE_LIFE);
+	lua.set("UNIT_STATE_MAX_LIFE", UNIT_STATE_MAX_LIFE);
+	lua.set("UNIT_STATE_MANA", UNIT_STATE_MANA);
+	lua.set("UNIT_STATE_MAX_MANA", UNIT_STATE_MAX_MANA);
+
+	lua.set("AI_DIFFICULTY_NEWBIE", AI_DIFFICULTY_NEWBIE);
+	lua.set("AI_DIFFICULTY_NORMAL", AI_DIFFICULTY_NORMAL);
+	lua.set("AI_DIFFICULTY_INSANE", AI_DIFFICULTY_INSANE);
+
+    // player score values
+	lua.set("PLAYER_SCORE_UNITS_TRAINED", PLAYER_SCORE_UNITS_TRAINED);
+	lua.set("PLAYER_SCORE_UNITS_KILLED", PLAYER_SCORE_UNITS_KILLED);
+	lua.set("PLAYER_SCORE_STRUCT_BUILT", PLAYER_SCORE_STRUCT_BUILT);
+	lua.set("PLAYER_SCORE_STRUCT_RAZED", PLAYER_SCORE_STRUCT_RAZED);
+	lua.set("PLAYER_SCORE_TECH_PERCENT", PLAYER_SCORE_TECH_PERCENT);
+	lua.set("PLAYER_SCORE_FOOD_MAXPROD", PLAYER_SCORE_FOOD_MAXPROD);
+	lua.set("PLAYER_SCORE_FOOD_MAXUSED", PLAYER_SCORE_FOOD_MAXUSED);
+	lua.set("PLAYER_SCORE_HEROES_KILLED", PLAYER_SCORE_HEROES_KILLED);
+	lua.set("PLAYER_SCORE_ITEMS_GAINED", PLAYER_SCORE_ITEMS_GAINED);
+	lua.set("PLAYER_SCORE_MERCS_HIRED", PLAYER_SCORE_MERCS_HIRED);
+	lua.set("PLAYER_SCORE_GOLD_MINED_TOTAL", PLAYER_SCORE_GOLD_MINED_TOTAL);
+	lua.set("PLAYER_SCORE_GOLD_MINED_UPKEEP", PLAYER_SCORE_GOLD_MINED_UPKEEP);
+	lua.set("PLAYER_SCORE_GOLD_LOST_UPKEEP", PLAYER_SCORE_GOLD_LOST_UPKEEP);
+	lua.set("PLAYER_SCORE_GOLD_LOST_TAX", PLAYER_SCORE_GOLD_LOST_TAX);
+	lua.set("PLAYER_SCORE_GOLD_GIVEN", PLAYER_SCORE_GOLD_GIVEN);
+	lua.set("PLAYER_SCORE_GOLD_RECEIVED", PLAYER_SCORE_GOLD_RECEIVED);
+	lua.set("PLAYER_SCORE_LUMBER_TOTAL", PLAYER_SCORE_LUMBER_TOTAL);
+	lua.set("PLAYER_SCORE_LUMBER_LOST_UPKEEP", PLAYER_SCORE_LUMBER_LOST_UPKEEP);
+	lua.set("PLAYER_SCORE_LUMBER_LOST_TAX", PLAYER_SCORE_LUMBER_LOST_TAX);
+	lua.set("PLAYER_SCORE_LUMBER_GIVEN", PLAYER_SCORE_LUMBER_GIVEN);
+	lua.set("PLAYER_SCORE_LUMBER_RECEIVED", PLAYER_SCORE_LUMBER_RECEIVED);
+	lua.set("PLAYER_SCORE_UNIT_TOTAL", PLAYER_SCORE_UNIT_TOTAL);
+	lua.set("PLAYER_SCORE_HERO_TOTAL", PLAYER_SCORE_HERO_TOTAL);
+	lua.set("PLAYER_SCORE_RESOURCE_TOTAL", PLAYER_SCORE_RESOURCE_TOTAL);
+	lua.set("PLAYER_SCORE_TOTAL", PLAYER_SCORE_TOTAL);
+        
+//===================================================
+// Game, Player and Unit Events
+//
+//  When an event causes a trigger to fire these
+//  values allow the action code to determine which
+//  event was dispatched and therefore which set of
+//  native functions should be used to get information
+//  about the event.
+//
+// Do NOT change the order or value of these constants
+// without insuring that the JASS_GAME_EVENTS_WAR3 enum
+// is changed to match.
+//
+//===================================================
+
+    //===================================================
+    // For use with TriggerRegisterGameEvent    
+    //===================================================    
+
+	lua.set("EVENT_GAME_VICTORY", EVENT_GAME_VICTORY);
+	lua.set("EVENT_GAME_END_LEVEL", EVENT_GAME_END_LEVEL);
+
+	lua.set("EVENT_GAME_VARIABLE_LIMIT", EVENT_GAME_VARIABLE_LIMIT);
+	lua.set("EVENT_GAME_STATE_LIMIT", EVENT_GAME_STATE_LIMIT);
+
+	lua.set("EVENT_GAME_TIMER_EXPIRED", EVENT_GAME_TIMER_EXPIRED);
+
+	lua.set("EVENT_GAME_ENTER_REGION", EVENT_GAME_ENTER_REGION);
+	lua.set("EVENT_GAME_LEAVE_REGION", EVENT_GAME_LEAVE_REGION);
+
+	lua.set("EVENT_GAME_TRACKABLE_HIT", EVENT_GAME_TRACKABLE_HIT);
+	lua.set("EVENT_GAME_TRACKABLE_TRACK", EVENT_GAME_TRACKABLE_TRACK);
+
+	lua.set("EVENT_GAME_SHOW_SKILL", EVENT_GAME_SHOW_SKILL);
+	lua.set("EVENT_GAME_BUILD_SUBMENU", EVENT_GAME_BUILD_SUBMENU);
+
+    //===================================================
+    // For use with TriggerRegisterPlayerEvent
+    //===================================================
+	lua.set("EVENT_PLAYER_STATE_LIMIT", EVENT_PLAYER_STATE_LIMIT);
+	lua.set("EVENT_PLAYER_ALLIANCE_CHANGED", EVENT_PLAYER_ALLIANCE_CHANGED);
+
+	lua.set("EVENT_PLAYER_DEFEAT", EVENT_PLAYER_DEFEAT);
+	lua.set("EVENT_PLAYER_VICTORY", EVENT_PLAYER_VICTORY);
+	lua.set("EVENT_PLAYER_LEAVE", EVENT_PLAYER_LEAVE);
+	lua.set("EVENT_PLAYER_CHAT", EVENT_PLAYER_CHAT);
+	lua.set("EVENT_PLAYER_END_CINEMATIC", EVENT_PLAYER_END_CINEMATIC);
+
+    //===================================================
+    // For use with TriggerRegisterPlayerUnitEvent
+    //===================================================
+
+	lua.set("EVENT_PLAYER_UNIT_ATTACKED", EVENT_PLAYER_UNIT_ATTACKED);
+	lua.set("EVENT_PLAYER_UNIT_RESCUED", EVENT_PLAYER_UNIT_RESCUED);
+
+	lua.set("EVENT_PLAYER_UNIT_DEATH", EVENT_PLAYER_UNIT_DEATH);
+	lua.set("EVENT_PLAYER_UNIT_DECAY", EVENT_PLAYER_UNIT_DECAY);
+
+	lua.set("EVENT_PLAYER_UNIT_DETECTED", EVENT_PLAYER_UNIT_DETECTED);
+	lua.set("EVENT_PLAYER_UNIT_HIDDEN", EVENT_PLAYER_UNIT_HIDDEN);
+
+	lua.set("EVENT_PLAYER_UNIT_SELECTED", EVENT_PLAYER_UNIT_SELECTED);
+	lua.set("EVENT_PLAYER_UNIT_DESELECTED", EVENT_PLAYER_UNIT_DESELECTED);
+
+	lua.set("EVENT_PLAYER_UNIT_CONSTRUCT_START", EVENT_PLAYER_UNIT_CONSTRUCT_START);
+	lua.set("EVENT_PLAYER_UNIT_CONSTRUCT_CANCEL", EVENT_PLAYER_UNIT_CONSTRUCT_CANCEL);
+	lua.set("EVENT_PLAYER_UNIT_CONSTRUCT_FINISH", EVENT_PLAYER_UNIT_CONSTRUCT_FINISH);
+
+	lua.set("EVENT_PLAYER_UNIT_UPGRADE_START", EVENT_PLAYER_UNIT_UPGRADE_START);
+	lua.set("EVENT_PLAYER_UNIT_UPGRADE_CANCEL", EVENT_PLAYER_UNIT_UPGRADE_CANCEL);
+	lua.set("EVENT_PLAYER_UNIT_UPGRADE_FINISH", EVENT_PLAYER_UNIT_UPGRADE_FINISH);
+
+	lua.set("EVENT_PLAYER_UNIT_TRAIN_START", EVENT_PLAYER_UNIT_TRAIN_START);
+	lua.set("EVENT_PLAYER_UNIT_TRAIN_CANCEL", EVENT_PLAYER_UNIT_TRAIN_CANCEL);
+	lua.set("EVENT_PLAYER_UNIT_TRAIN_FINISH", EVENT_PLAYER_UNIT_TRAIN_FINISH);
+
+	lua.set("EVENT_PLAYER_UNIT_RESEARCH_START", EVENT_PLAYER_UNIT_RESEARCH_START);
+	lua.set("EVENT_PLAYER_UNIT_RESEARCH_CANCEL", EVENT_PLAYER_UNIT_RESEARCH_CANCEL);
+	lua.set("EVENT_PLAYER_UNIT_RESEARCH_FINISH", EVENT_PLAYER_UNIT_RESEARCH_FINISH);
+	lua.set("EVENT_PLAYER_UNIT_ISSUED_ORDER", EVENT_PLAYER_UNIT_ISSUED_ORDER);
+	lua.set("EVENT_PLAYER_UNIT_ISSUED_POINT_ORDER", EVENT_PLAYER_UNIT_ISSUED_POINT_ORDER);
+	lua.set("EVENT_PLAYER_UNIT_ISSUED_TARGET_ORDER", EVENT_PLAYER_UNIT_ISSUED_TARGET_ORDER);
+	lua.set("EVENT_PLAYER_UNIT_ISSUED_UNIT_ORDER", EVENT_PLAYER_UNIT_ISSUED_UNIT_ORDER);
+
+	lua.set("EVENT_PLAYER_HERO_LEVEL", EVENT_PLAYER_HERO_LEVEL);
+	lua.set("EVENT_PLAYER_HERO_SKILL", EVENT_PLAYER_HERO_SKILL);
+
+	lua.set("EVENT_PLAYER_HERO_REVIVABLE", EVENT_PLAYER_HERO_REVIVABLE);
+
+	lua.set("EVENT_PLAYER_HERO_REVIVE_START", EVENT_PLAYER_HERO_REVIVE_START);
+	lua.set("EVENT_PLAYER_HERO_REVIVE_CANCEL", EVENT_PLAYER_HERO_REVIVE_CANCEL);
+	lua.set("EVENT_PLAYER_HERO_REVIVE_FINISH", EVENT_PLAYER_HERO_REVIVE_FINISH);
+	lua.set("EVENT_PLAYER_UNIT_SUMMON", EVENT_PLAYER_UNIT_SUMMON);
+	lua.set("EVENT_PLAYER_UNIT_DROP_ITEM", EVENT_PLAYER_UNIT_DROP_ITEM);
+	lua.set("EVENT_PLAYER_UNIT_PICKUP_ITEM", EVENT_PLAYER_UNIT_PICKUP_ITEM);
+	lua.set("EVENT_PLAYER_UNIT_USE_ITEM", EVENT_PLAYER_UNIT_USE_ITEM);
+
+	lua.set("EVENT_PLAYER_UNIT_LOADED", EVENT_PLAYER_UNIT_LOADED);
+    
+    //===================================================
+    // For use with TriggerRegisterUnitEvent
+    //===================================================
+
+	lua.set("EVENT_UNIT_DAMAGED", EVENT_UNIT_DAMAGED);
+	lua.set("EVENT_UNIT_DEATH", EVENT_UNIT_DEATH);
+	lua.set("EVENT_UNIT_DECAY", EVENT_UNIT_DECAY);
+	lua.set("EVENT_UNIT_DETECTED", EVENT_UNIT_DETECTED);
+	lua.set("EVENT_UNIT_HIDDEN", EVENT_UNIT_HIDDEN);
+	lua.set("EVENT_UNIT_SELECTED", EVENT_UNIT_SELECTED);
+	lua.set("EVENT_UNIT_DESELECTED", EVENT_UNIT_DESELECTED);
+                                                                        
+	lua.set("EVENT_UNIT_STATE_LIMIT", EVENT_UNIT_STATE_LIMIT);
+
+    // Events which may have a filter for the "other unit"              
+    //                                                                  
+	lua.set("EVENT_UNIT_ACQUIRED_TARGET", EVENT_UNIT_ACQUIRED_TARGET);
+	lua.set("EVENT_UNIT_TARGET_IN_RANGE", EVENT_UNIT_TARGET_IN_RANGE);
+	lua.set("EVENT_UNIT_ATTACKED", EVENT_UNIT_ATTACKED);
+	lua.set("EVENT_UNIT_RESCUED", EVENT_UNIT_RESCUED);
+                                                                        
+	lua.set("EVENT_UNIT_CONSTRUCT_CANCEL", EVENT_UNIT_CONSTRUCT_CANCEL);
+	lua.set("EVENT_UNIT_CONSTRUCT_FINISH", EVENT_UNIT_CONSTRUCT_FINISH);
+                                                                        
+	lua.set("EVENT_UNIT_UPGRADE_START", EVENT_UNIT_UPGRADE_START);
+	lua.set("EVENT_UNIT_UPGRADE_CANCEL", EVENT_UNIT_UPGRADE_CANCEL);
+	lua.set("EVENT_UNIT_UPGRADE_FINISH", EVENT_UNIT_UPGRADE_FINISH);
+                                                                        
+    // Events which involve the specified unit performing               
+    // training of other units                                          
+    //                                                                  
+	lua.set("EVENT_UNIT_TRAIN_START", EVENT_UNIT_TRAIN_START);
+	lua.set("EVENT_UNIT_TRAIN_CANCEL", EVENT_UNIT_TRAIN_CANCEL);
+	lua.set("EVENT_UNIT_TRAIN_FINISH", EVENT_UNIT_TRAIN_FINISH);
+                                                                        
+	lua.set("EVENT_UNIT_RESEARCH_START", EVENT_UNIT_RESEARCH_START);
+	lua.set("EVENT_UNIT_RESEARCH_CANCEL", EVENT_UNIT_RESEARCH_CANCEL);
+	lua.set("EVENT_UNIT_RESEARCH_FINISH", EVENT_UNIT_RESEARCH_FINISH);
+                                                                        
+	lua.set("EVENT_UNIT_ISSUED_ORDER", EVENT_UNIT_ISSUED_ORDER);
+	lua.set("EVENT_UNIT_ISSUED_POINT_ORDER", EVENT_UNIT_ISSUED_POINT_ORDER);
+	lua.set("EVENT_UNIT_ISSUED_TARGET_ORDER", EVENT_UNIT_ISSUED_TARGET_ORDER);
+                                                                       
+	lua.set("EVENT_UNIT_HERO_LEVEL", EVENT_UNIT_HERO_LEVEL);
+	lua.set("EVENT_UNIT_HERO_SKILL", EVENT_UNIT_HERO_SKILL);
+                                                                        
+	lua.set("EVENT_UNIT_HERO_REVIVABLE", EVENT_UNIT_HERO_REVIVABLE);
+	lua.set("EVENT_UNIT_HERO_REVIVE_START", EVENT_UNIT_HERO_REVIVE_START);
+	lua.set("EVENT_UNIT_HERO_REVIVE_CANCEL", EVENT_UNIT_HERO_REVIVE_CANCEL);
+	lua.set("EVENT_UNIT_HERO_REVIVE_FINISH", EVENT_UNIT_HERO_REVIVE_FINISH);
+                                                                        
+	lua.set("EVENT_UNIT_SUMMON", EVENT_UNIT_SUMMON);
+                                                                        
+	lua.set("EVENT_UNIT_DROP_ITEM", EVENT_UNIT_DROP_ITEM);
+	lua.set("EVENT_UNIT_PICKUP_ITEM", EVENT_UNIT_PICKUP_ITEM);
+	lua.set("EVENT_UNIT_USE_ITEM", EVENT_UNIT_USE_ITEM);
+
+	lua.set("EVENT_UNIT_LOADED", EVENT_UNIT_LOADED);
+
+	lua.set("EVENT_WIDGET_DEATH", EVENT_WIDGET_DEATH);
+
+	lua.set("EVENT_DIALOG_BUTTON_CLICK", EVENT_DIALOG_BUTTON_CLICK);
+	lua.set("EVENT_DIALOG_CLICK", EVENT_DIALOG_CLICK);
+
+    //===================================================
+    // Frozen Throne Expansion Events
+    // Need to be added here to preserve compat
+    //===================================================
+
+    //===================================================
+    // For use with TriggerRegisterGameEvent    
+    //===================================================    
+
+	lua.set("EVENT_GAME_LOADED", EVENT_GAME_LOADED);
+	lua.set("EVENT_GAME_TOURNAMENT_FINISH_SOON", EVENT_GAME_TOURNAMENT_FINISH_SOON);
+	lua.set("EVENT_GAME_TOURNAMENT_FINISH_NOW", EVENT_GAME_TOURNAMENT_FINISH_NOW);
+	lua.set("EVENT_GAME_SAVE", EVENT_GAME_SAVE);
+
+    //===================================================
+    // For use with TriggerRegisterPlayerEvent
+    //===================================================
+
+	lua.set("EVENT_PLAYER_ARROW_LEFT_DOWN", EVENT_PLAYER_ARROW_LEFT_DOWN);
+	lua.set("EVENT_PLAYER_ARROW_LEFT_UP", EVENT_PLAYER_ARROW_LEFT_UP);
+	lua.set("EVENT_PLAYER_ARROW_RIGHT_DOWN", EVENT_PLAYER_ARROW_RIGHT_DOWN);
+	lua.set("EVENT_PLAYER_ARROW_RIGHT_UP", EVENT_PLAYER_ARROW_RIGHT_UP);
+	lua.set("EVENT_PLAYER_ARROW_DOWN_DOWN", EVENT_PLAYER_ARROW_DOWN_DOWN);
+	lua.set("EVENT_PLAYER_ARROW_DOWN_UP", EVENT_PLAYER_ARROW_DOWN_UP);
+	lua.set("EVENT_PLAYER_ARROW_UP_DOWN", EVENT_PLAYER_ARROW_UP_DOWN);
+	lua.set("EVENT_PLAYER_ARROW_UP_UP", EVENT_PLAYER_ARROW_UP_UP);
+
+    //===================================================
+    // For use with TriggerRegisterPlayerUnitEvent
+    //===================================================
+
+	lua.set("EVENT_PLAYER_UNIT_SELL", EVENT_PLAYER_UNIT_SELL);
+	lua.set("EVENT_PLAYER_UNIT_CHANGE_OWNER", EVENT_PLAYER_UNIT_CHANGE_OWNER);
+	lua.set("EVENT_PLAYER_UNIT_SELL_ITEM", EVENT_PLAYER_UNIT_SELL_ITEM);
+	lua.set("EVENT_PLAYER_UNIT_SPELL_CHANNEL", EVENT_PLAYER_UNIT_SPELL_CHANNEL);
+	lua.set("EVENT_PLAYER_UNIT_SPELL_CAST", EVENT_PLAYER_UNIT_SPELL_CAST);
+	lua.set("EVENT_PLAYER_UNIT_SPELL_EFFECT", EVENT_PLAYER_UNIT_SPELL_EFFECT);
+	lua.set("EVENT_PLAYER_UNIT_SPELL_FINISH", EVENT_PLAYER_UNIT_SPELL_FINISH);
+	lua.set("EVENT_PLAYER_UNIT_SPELL_ENDCAST", EVENT_PLAYER_UNIT_SPELL_ENDCAST);
+	lua.set("EVENT_PLAYER_UNIT_PAWN_ITEM", EVENT_PLAYER_UNIT_PAWN_ITEM);
+
+    //===================================================
+    // For use with TriggerRegisterUnitEvent
+    //===================================================
+
+	lua.set("EVENT_UNIT_SELL", EVENT_UNIT_SELL);
+	lua.set("EVENT_UNIT_CHANGE_OWNER", EVENT_UNIT_CHANGE_OWNER);
+	lua.set("EVENT_UNIT_SELL_ITEM", EVENT_UNIT_SELL_ITEM);
+	lua.set("EVENT_UNIT_SPELL_CHANNEL", EVENT_UNIT_SPELL_CHANNEL);
+	lua.set("EVENT_UNIT_SPELL_CAST", EVENT_UNIT_SPELL_CAST);
+	lua.set("EVENT_UNIT_SPELL_EFFECT", EVENT_UNIT_SPELL_EFFECT);
+	lua.set("EVENT_UNIT_SPELL_FINISH", EVENT_UNIT_SPELL_FINISH);
+	lua.set("EVENT_UNIT_SPELL_ENDCAST", EVENT_UNIT_SPELL_ENDCAST);
+	lua.set("EVENT_UNIT_PAWN_ITEM", EVENT_UNIT_PAWN_ITEM);
+
+    //===================================================
+    // Limit Event API constants    
+    // variable, player state, game state, and unit state events
+    // ( do NOT change the order of these... )
+    //===================================================
+	lua.set("LESS_THAN", LESS_THAN);
+	lua.set("LESS_THAN_OR_EQUAL", LESS_THAN_OR_EQUAL);
+	lua.set("EQUAL", EQUAL);
+	lua.set("GREATER_THAN_OR_EQUAL", GREATER_THAN_OR_EQUAL);
+	lua.set("GREATER_THAN", GREATER_THAN);
+	lua.set("NOT_EQUAL", NOT_EQUAL);
+
+//===================================================
+// Unit Type Constants for use with IsUnitType()
+//===================================================
+
+	lua.set("UNIT_TYPE_HERO", UNIT_TYPE_HERO);
+	lua.set("UNIT_TYPE_DEAD", UNIT_TYPE_DEAD);
+	lua.set("UNIT_TYPE_STRUCTURE", UNIT_TYPE_STRUCTURE);
+
+	lua.set("UNIT_TYPE_FLYING", UNIT_TYPE_FLYING);
+	lua.set("UNIT_TYPE_GROUND", UNIT_TYPE_GROUND);
+
+	lua.set("UNIT_TYPE_ATTACKS_FLYING", UNIT_TYPE_ATTACKS_FLYING);
+	lua.set("UNIT_TYPE_ATTACKS_GROUND", UNIT_TYPE_ATTACKS_GROUND);
+
+	lua.set("UNIT_TYPE_MELEE_ATTACKER", UNIT_TYPE_MELEE_ATTACKER);
+	lua.set("UNIT_TYPE_RANGED_ATTACKER", UNIT_TYPE_RANGED_ATTACKER);
+
+	lua.set("UNIT_TYPE_GIANT", UNIT_TYPE_GIANT);
+	lua.set("UNIT_TYPE_SUMMONED", UNIT_TYPE_SUMMONED);
+	lua.set("UNIT_TYPE_STUNNED", UNIT_TYPE_STUNNED);
+	lua.set("UNIT_TYPE_PLAGUED", UNIT_TYPE_PLAGUED);
+	lua.set("UNIT_TYPE_SNARED", UNIT_TYPE_SNARED);
+
+	lua.set("UNIT_TYPE_UNDEAD", UNIT_TYPE_UNDEAD);
+	lua.set("UNIT_TYPE_MECHANICAL", UNIT_TYPE_MECHANICAL);
+	lua.set("UNIT_TYPE_PEON", UNIT_TYPE_PEON);
+	lua.set("UNIT_TYPE_SAPPER", UNIT_TYPE_SAPPER);
+	lua.set("UNIT_TYPE_TOWNHALL", UNIT_TYPE_TOWNHALL);
+	lua.set("UNIT_TYPE_ANCIENT", UNIT_TYPE_ANCIENT);
+    
+	lua.set("UNIT_TYPE_TAUREN", UNIT_TYPE_TAUREN);
+	lua.set("UNIT_TYPE_POISONED", UNIT_TYPE_POISONED);
+	lua.set("UNIT_TYPE_POLYMORPHED", UNIT_TYPE_POLYMORPHED);
+	lua.set("UNIT_TYPE_SLEEPING", UNIT_TYPE_SLEEPING);
+	lua.set("UNIT_TYPE_RESISTANT", UNIT_TYPE_RESISTANT);
+	lua.set("UNIT_TYPE_ETHEREAL", UNIT_TYPE_ETHEREAL);
+	lua.set("UNIT_TYPE_MAGIC_IMMUNE", UNIT_TYPE_MAGIC_IMMUNE);
+
+//===================================================
+// Unit Type Constants for use with ChooseRandomItemEx()
+//===================================================
+
+	lua.set("ITEM_TYPE_PERMANENT", ITEM_TYPE_PERMANENT);
+	lua.set("ITEM_TYPE_CHARGED", ITEM_TYPE_CHARGED);
+	lua.set("ITEM_TYPE_POWERUP", ITEM_TYPE_POWERUP);
+	lua.set("ITEM_TYPE_ARTIFACT", ITEM_TYPE_ARTIFACT);
+	lua.set("ITEM_TYPE_PURCHASABLE", ITEM_TYPE_PURCHASABLE);
+	lua.set("ITEM_TYPE_CAMPAIGN", ITEM_TYPE_CAMPAIGN);
+	lua.set("ITEM_TYPE_MISCELLANEOUS", ITEM_TYPE_MISCELLANEOUS);
+	lua.set("ITEM_TYPE_UNKNOWN", ITEM_TYPE_UNKNOWN);
+	lua.set("ITEM_TYPE_ANY", ITEM_TYPE_ANY);
+
+    // Deprecated, should use ITEM_TYPE_POWERUP
+	lua.set("ITEM_TYPE_TOME", ITEM_TYPE_TOME);
+
+//===================================================
+// Animatable Camera Fields
+//===================================================
+
+	lua.set("CAMERA_FIELD_TARGET_DISTANCE", CAMERA_FIELD_TARGET_DISTANCE);
+	lua.set("CAMERA_FIELD_FARZ", CAMERA_FIELD_FARZ);
+	lua.set("CAMERA_FIELD_ANGLE_OF_ATTACK", CAMERA_FIELD_ANGLE_OF_ATTACK);
+	lua.set("CAMERA_FIELD_FIELD_OF_VIEW", CAMERA_FIELD_FIELD_OF_VIEW);
+	lua.set("CAMERA_FIELD_ROLL", CAMERA_FIELD_ROLL);
+	lua.set("CAMERA_FIELD_ROTATION", CAMERA_FIELD_ROTATION);
+	lua.set("CAMERA_FIELD_ZOFFSET", CAMERA_FIELD_ZOFFSET);
+
+	lua.set("BLEND_MODE_NONE", BLEND_MODE_NONE);
+	lua.set("BLEND_MODE_DONT_CARE", BLEND_MODE_DONT_CARE);
+	lua.set("BLEND_MODE_KEYALPHA", BLEND_MODE_KEYALPHA);
+	lua.set("BLEND_MODE_BLEND", BLEND_MODE_BLEND);
+	lua.set("BLEND_MODE_ADDITIVE", BLEND_MODE_ADDITIVE);
+	lua.set("BLEND_MODE_MODULATE", BLEND_MODE_MODULATE);
+	lua.set("BLEND_MODE_MODULATE_2X", BLEND_MODE_MODULATE_2X);
+    
+	lua.set("RARITY_FREQUENT", RARITY_FREQUENT);
+	lua.set("RARITY_RARE", RARITY_RARE);
+
+	lua.set("TEXMAP_FLAG_NONE", TEXMAP_FLAG_NONE);
+	lua.set("TEXMAP_FLAG_WRAP_U", TEXMAP_FLAG_WRAP_U);
+	lua.set("TEXMAP_FLAG_WRAP_V", TEXMAP_FLAG_WRAP_V);
+	lua.set("TEXMAP_FLAG_WRAP_UV", TEXMAP_FLAG_WRAP_UV);
+
+	lua.set("FOG_OF_WAR_MASKED", FOG_OF_WAR_MASKED);
+	lua.set("FOG_OF_WAR_FOGGED", FOG_OF_WAR_FOGGED);
+	lua.set("FOG_OF_WAR_VISIBLE", FOG_OF_WAR_VISIBLE);
+
+//===================================================
+// Camera Margin constants for use with GetCameraMargin
+//===================================================
+
+	lua.set("CAMERA_MARGIN_LEFT", CAMERA_MARGIN_LEFT);
+	lua.set("CAMERA_MARGIN_RIGHT", CAMERA_MARGIN_RIGHT);
+	lua.set("CAMERA_MARGIN_TOP", CAMERA_MARGIN_TOP);
+	lua.set("CAMERA_MARGIN_BOTTOM", CAMERA_MARGIN_BOTTOM);
+
+//===================================================
+// Effect API constants
+//===================================================
+
+	lua.set("EFFECT_TYPE_EFFECT", EFFECT_TYPE_EFFECT);
+	lua.set("EFFECT_TYPE_TARGET", EFFECT_TYPE_TARGET);
+	lua.set("EFFECT_TYPE_CASTER", EFFECT_TYPE_CASTER);
+	lua.set("EFFECT_TYPE_SPECIAL", EFFECT_TYPE_SPECIAL);
+	lua.set("EFFECT_TYPE_AREA_EFFECT", EFFECT_TYPE_AREA_EFFECT);
+	lua.set("EFFECT_TYPE_MISSILE", EFFECT_TYPE_MISSILE);
+	lua.set("EFFECT_TYPE_LIGHTNING", EFFECT_TYPE_LIGHTNING);
+
+	lua.set("SOUND_TYPE_EFFECT", SOUND_TYPE_EFFECT);
+	lua.set("SOUND_TYPE_EFFECT_LOOPED", SOUND_TYPE_EFFECT_LOOPED);
+
 }

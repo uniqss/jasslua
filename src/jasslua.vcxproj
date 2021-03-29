@@ -189,6 +189,7 @@
     <ClCompile Include="item.cpp" />
     <ClCompile Include="itempool.cpp" />
     <ClCompile Include="itemtype.cpp" />
+    <ClCompile Include="jass_globals_vars.cpp" />
     <ClCompile Include="jass_types.cpp" />
     <ClCompile Include="jass_globals.cpp" />
     <ClCompile Include="jass_luastate.cpp" />
@@ -287,6 +288,8 @@
     <ClInclude Include="item.h" />
     <ClInclude Include="itempool.h" />
     <ClInclude Include="itemtype.h" />
+    <ClInclude Include="jass_globals_inc.h" />
+    <ClInclude Include="jass_globals_vars.h" />
     <ClInclude Include="jass_types.h" />
     <ClInclude Include="jass_globals.h" />
     <ClInclude Include="jass_luastate.h" />

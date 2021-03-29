@@ -4,3 +4,6 @@
 *.iobj
 *.ipdb
 *.pdb
+/tools/transglobal/.vs
+/tools/transglobal/Debug
+/tools/transglobal/x64
