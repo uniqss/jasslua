@@ -112,12 +112,18 @@ int test_globals(sol::state_view lua)
 	return 0;
 }
 
+void test_math(sol::state_view lua)
+{
+	lua.script_file("test_math.lua");
+}
+
 int test(sol::state_view lua)
 {
 	//test1(lua);
 	//test2(lua);
 
 	test_globals(lua);
+	test_math(lua);
 
 	return 0;
 }

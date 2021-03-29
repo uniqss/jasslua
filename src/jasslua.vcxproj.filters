@@ -306,6 +306,15 @@
     <ClCompile Include="jass_globals_vars.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="jass_math.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="jass_stringutil.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="jass_mapsetup.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="test.h">
@@ -600,6 +609,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="jass_globals_vars.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="jass_math.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="jass_stringutil.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="jass_mapsetup.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
