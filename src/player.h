@@ -21,6 +21,7 @@ public:
 	mapcontrol* m_pMapControl;
 	playercolor* m_pPlayerColor;
 	int m_playerTeam;
+	int m_StartLocIndex;
 public:
 	void SetPlayerTeam(int whichTeam);
 	void SetPlayerStartLocation(int startLocIndex);

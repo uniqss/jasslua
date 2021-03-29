@@ -33,7 +33,7 @@ void player::SetPlayerTeam(int whichTeam)
 
 void player::SetPlayerStartLocation(int startLocIndex)
 {
-
+	m_StartLocIndex = startLocIndex;
 }
 
 void player::ForcePlayerStartLocation(int startLocIndex)
@@ -93,7 +93,7 @@ int player::GetPlayerTeam()
 
 int player::GetPlayerStartLocation()
 {
-	return 0;
+	return m_StartLocIndex;
 }
 
 playercolor* player::GetPlayerColor()
