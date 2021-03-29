@@ -1,0 +1,70 @@
+﻿STRING 0
+{
+玩家 1
+}
+
+STRING 1
+{
+玩家 2
+}
+
+STRING 2
+{
+玩家 3
+}
+
+STRING 3
+{
+玩家 4
+}
+
+STRING 4
+{
+军队 1
+}
+
+STRING 5
+{
+军队 2
+}
+
+STRING 6
+{
+军队 3
+}
+
+STRING 7
+{
+军队 4
+}
+
+STRING 8
+{
+军队 5
+}
+
+STRING 9
+{
+军队 6
+}
+
+STRING 10
+{
+Lost Temple
+}
+
+STRING 11
+{
+FFA or 2v2
+}
+
+STRING 12
+{
+被众多金矿环绕着，生命之泉在向你招手。快速发展，否则会有被对手冲跨的危险。
+}
+
+STRING 13
+{
+暴雪娱乐
+}
+
