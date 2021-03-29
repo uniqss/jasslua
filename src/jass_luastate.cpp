@@ -6,6 +6,7 @@
 #include "jass_globals.h"
 #include "jass_stringutil.h"
 #include "jass_mapsetup.h"
+#include "player.h"
 
 void jass_luastate::init()
 {
@@ -17,4 +18,5 @@ void jass_luastate::init()
 	jass_globals::jasslua_regist_globals(luastate);
 	jass_stringutil::jasslua_regist_stringapi(luastate);
 	jass_mapsetup::jasslua_regist_mapsetupapi(luastate);
+	player::jasslua_regist_player(luastate);
 }
