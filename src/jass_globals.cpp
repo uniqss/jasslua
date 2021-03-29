@@ -222,6 +222,11 @@ const playerstate PLAYER_STATE_UNFOLLOWABLE = ConvertPlayerState(12);
 const playerstate PLAYER_STATE_GOLD_UPKEEP_RATE = ConvertPlayerState(13);
 const playerstate PLAYER_STATE_LUMBER_UPKEEP_RATE = ConvertPlayerState(14);
 
+const playerstate PLAYER_STATE_GOLD_GATHERED = ConvertPlayerState(15);
+const playerstate PLAYER_STATE_LUMBER_GATHERED = ConvertPlayerState(16);
+
+const playerstate PLAYER_STATE_NO_CREEP_SLEEP = ConvertPlayerState(25);
+
 void jass_globals::jasslua_regist_globals(sol::state_view lua)
 {
 	lua.set("FALSE", FALSE);
@@ -445,5 +450,8 @@ void jass_globals::jasslua_regist_globals(sol::state_view lua)
 	lua.set("PLAYER_STATE_GOLD_UPKEEP_RATE", PLAYER_STATE_GOLD_UPKEEP_RATE);
 	lua.set("PLAYER_STATE_LUMBER_UPKEEP_RATE", PLAYER_STATE_LUMBER_UPKEEP_RATE);
 
+	lua.set("PLAYER_STATE_GOLD_GATHERED", PLAYER_STATE_GOLD_GATHERED);
+	lua.set("PLAYER_STATE_LUMBER_GATHERED", PLAYER_STATE_LUMBER_GATHERED);
 
+	lua.set("PLAYER_STATE_NO_CREEP_SLEEP", PLAYER_STATE_NO_CREEP_SLEEP);
 }
