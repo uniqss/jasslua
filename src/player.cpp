@@ -23,6 +23,7 @@ void player::jasslua_regist_player(sol::state_view lua)
 		, "GetPlayerSlotState", &player::GetPlayerSlotState
 		, "GetPlayerTaxRate", &player::GetPlayerTaxRate
 		, "IsPlayerRacePrefSet", &player::IsPlayerRacePrefSet
+		, "GetPlayerName", &player::GetPlayerName
 		);
 }
 
@@ -76,11 +77,6 @@ void player::SetPlayerName(const string& name)
 	m_strPlayerName = name;
 }
 
-string player::GetPlayerName()
-{
-	return m_strPlayerName;
-}
-
 void player::SetPlayerOnScoreScreen(bool flag)
 {
 
@@ -124,4 +120,9 @@ int player::GetPlayerTaxRate(player* otherPlayer, playerstate* whichResource)
 bool player::IsPlayerRacePrefSet(racepreference* pref)
 {
 	return true;
+}
+
+string player::GetPlayerName()
+{
+	return m_strPlayerName;
 }

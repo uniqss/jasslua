@@ -101,8 +101,9 @@ type pathingtype        extends     handle
 type image              extends     handle
 type ubersplat          extends     handle
 
-
+// 转换种族
 constant native ConvertRace                 takes integer i returns race
+// 转换联盟类型
 constant native ConvertAllianceType         takes integer i returns alliancetype
 constant native ConvertRacePref             takes integer i returns racepreference
 constant native ConvertIGameState           takes integer i returns igamestate
@@ -501,11 +502,14 @@ globals
     //===================================================
     // For use with TriggerRegisterPlayerUnitEvent
     //===================================================
-
+    // 玩家單位被攻擊
     constant playerunitevent EVENT_PLAYER_UNIT_ATTACKED                 = ConvertPlayerUnitEvent(18)
+    // 玩家單位被救援
     constant playerunitevent EVENT_PLAYER_UNIT_RESCUED                  = ConvertPlayerUnitEvent(19)
 
+    // 玩家單位死亡
     constant playerunitevent EVENT_PLAYER_UNIT_DEATH                    = ConvertPlayerUnitEvent(20)
+    // 玩家單位開始腐爛
     constant playerunitevent EVENT_PLAYER_UNIT_DECAY                    = ConvertPlayerUnitEvent(21)
 
     constant playerunitevent EVENT_PLAYER_UNIT_DETECTED                 = ConvertPlayerUnitEvent(22)
@@ -645,27 +649,43 @@ globals
     //===================================================
 
     constant playerunitevent    EVENT_PLAYER_UNIT_SELL                  = ConvertPlayerUnitEvent(269)
+    // 玩家單位更改所有者
     constant playerunitevent    EVENT_PLAYER_UNIT_CHANGE_OWNER          = ConvertPlayerUnitEvent(270)
+    // 玩家單位出售物品
     constant playerunitevent    EVENT_PLAYER_UNIT_SELL_ITEM             = ConvertPlayerUnitEvent(271)
+    // 玩家單位準備施放技能
     constant playerunitevent    EVENT_PLAYER_UNIT_SPELL_CHANNEL         = ConvertPlayerUnitEvent(272)
+    // 玩家單位開始施放技能
     constant playerunitevent    EVENT_PLAYER_UNIT_SPELL_CAST            = ConvertPlayerUnitEvent(273)
+    // 玩家單位發動技能效果
     constant playerunitevent    EVENT_PLAYER_UNIT_SPELL_EFFECT          = ConvertPlayerUnitEvent(274)
+    // 玩家單位釋放技能結束
     constant playerunitevent    EVENT_PLAYER_UNIT_SPELL_FINISH          = ConvertPlayerUnitEvent(275)
+    // 玩家單位停止施放技能
     constant playerunitevent    EVENT_PLAYER_UNIT_SPELL_ENDCAST         = ConvertPlayerUnitEvent(276)
+    // 玩家單位抵押物品
     constant playerunitevent    EVENT_PLAYER_UNIT_PAWN_ITEM             = ConvertPlayerUnitEvent(277)
 
     //===================================================
     // For use with TriggerRegisterUnitEvent
     //===================================================
-
+    // 单位出售
     constant unitevent          EVENT_UNIT_SELL                         = ConvertUnitEvent(286)
+    // 单位所属改变
     constant unitevent          EVENT_UNIT_CHANGE_OWNER                 = ConvertUnitEvent(287)
+	// 出售物品
     constant unitevent          EVENT_UNIT_SELL_ITEM                    = ConvertUnitEvent(288)
+	// 准备施放技能 (前摇开始)
     constant unitevent          EVENT_UNIT_SPELL_CHANNEL                = ConvertUnitEvent(289)
+	// 开始施放技能 (前摇结束)
     constant unitevent          EVENT_UNIT_SPELL_CAST                   = ConvertUnitEvent(290)
+	// 发动技能效果 (后摇开始)
     constant unitevent          EVENT_UNIT_SPELL_EFFECT                 = ConvertUnitEvent(291)
+	// 发动技能结束 (后摇结束)
     constant unitevent          EVENT_UNIT_SPELL_FINISH                 = ConvertUnitEvent(292)
+	// 停止施放技能
     constant unitevent          EVENT_UNIT_SPELL_ENDCAST                = ConvertUnitEvent(293)
+	// 抵押物品
     constant unitevent          EVENT_UNIT_PAWN_ITEM                    = ConvertUnitEvent(294)
 
     //===================================================
@@ -795,45 +815,67 @@ endglobals
 
 //============================================================================
 // MathAPI
+// 转换 度 到 弧度
 native Deg2Rad  takes real degrees returns real
+// 转换 弧度 到 度
 native Rad2Deg  takes real radians returns real
 
+// 正弦(弧度) [R]
 native Sin      takes real radians returns real
+// 余弦(弧度) [R]
 native Cos      takes real radians returns real
+// 正切(弧度) [R]
 native Tan      takes real radians returns real
 
 // Expect values between -1 and 1...returns 0 for invalid input
+// 反正弦(弧度) [R]
 native Asin     takes real y returns real
+// 反余弦(弧度) [R]
 native Acos     takes real x returns real
 
+// 反正切(弧度) [R]
 native Atan     takes real x returns real
 
 // Returns 0 if x and y are both 0
+// 反正切(Y:X)(弧度) [R]
 native Atan2    takes real y, real x returns real
 
 // Returns 0 if x <= 0
+// 平方根
 native SquareRoot takes real x returns real
 
 // computes x to the y power
 // y == 0.0             => 1
 // x ==0.0 and y < 0    => 0
 //
+// 求幂
 native Pow      takes real x, real power returns real
 
 //============================================================================
 // String Utility API
+// 转换整数变量为实数
 native I2R  takes integer i returns real
+// 转换实数为整数
 native R2I  takes real r returns integer
+// 将整数转换为字符串
 native I2S  takes integer i returns string
+// 将实数转换为字符串
 native R2S  takes real r returns string
+// 将实数转换为格式化字符串
 native R2SW takes real r, integer width, integer precision returns string
+// 转换字串符为整数
 native S2I  takes string s returns integer
+// 转换字符串为实数
 native S2R  takes string s returns real
+// 截取字符串 [R]
 native SubString takes string source, integer start, integer end returns string
+// 字串符长度
 native StringLength takes string s returns integer
 native StringCase takes string source, boolean upper returns string
 
+// 本地字符串 [R]
 native GetLocalizedString takes string source returns string
+// 本地热键 
 native GetLocalizedHotkey takes string source returns integer
 
 //============================================================================
@@ -859,22 +901,30 @@ native GetStartLocPrioSlot      takes integer whichStartLoc, integer prioSlotInd
 native GetStartLocPrio          takes integer whichStartLoc, integer prioSlotIndex returns startlocprio
 
 native SetGameTypeSupported takes gametype whichGameType, boolean value returns nothing
+// 设置地图参数
 native SetMapFlag           takes mapflag whichMapFlag, boolean value returns nothing
 native SetGamePlacement     takes placement whichPlacementType returns nothing
+// 设定游戏速度
 native SetGameSpeed         takes gamespeed whichspeed returns nothing
+// 设置游戏难度 [R]
 native SetGameDifficulty    takes gamedifficulty whichdifficulty returns nothing
 native SetResourceDensity   takes mapdensity whichdensity returns nothing
 native SetCreatureDensity   takes mapdensity whichdensity returns nothing
 
+// 队伍数量
 native GetTeams             takes nothing returns integer
+// 玩家数量
 native GetPlayers           takes nothing returns integer
 
 native IsGameTypeSupported  takes gametype whichGameType returns boolean
 native GetGameTypeSelected  takes nothing returns gametype
+// 地图参数
 native IsMapFlagSet         takes mapflag whichMapFlag returns boolean
 
 constant native GetGamePlacement     takes nothing returns placement
+// 当前游戏速度
 constant native GetGameSpeed         takes nothing returns gamespeed
+// 难度等级
 constant native GetGameDifficulty    takes nothing returns gamedifficulty
 constant native GetResourceDensity   takes nothing returns mapdensity
 constant native GetCreatureDensity   takes nothing returns mapdensity
@@ -883,6 +933,7 @@ constant native GetStartLocationY    takes integer whichStartLocation returns re
 constant native GetStartLocationLoc  takes integer whichStartLocation returns location
 
 
+// 设置玩家队伍
 native SetPlayerTeam            takes player whichPlayer, integer whichTeam returns nothing
 native SetPlayerStartLocation   takes player whichPlayer, integer startLocIndex returns nothing
 // forces player to have the specified start loc and marks the start loc as occupied
@@ -890,129 +941,205 @@ native SetPlayerStartLocation   takes player whichPlayer, integer startLocIndex 
 // ( i.e. you can use this to put people in a fixed loc and then
 //   use random placement for any unplaced players etc )
 native ForcePlayerStartLocation takes player whichPlayer, integer startLocIndex returns nothing 
+// 改变玩家颜色 [R]
 native SetPlayerColor           takes player whichPlayer, playercolor color returns nothing
+// 设置联盟状态(指定项目) [R]
 native SetPlayerAlliance        takes player sourcePlayer, player otherPlayer, alliancetype whichAllianceSetting, boolean value returns nothing
+// 设置税率 [R]
 native SetPlayerTaxRate         takes player sourcePlayer, player otherPlayer, playerstate whichResource, integer rate returns nothing
 native SetPlayerRacePreference  takes player whichPlayer, racepreference whichRacePreference returns nothing
 native SetPlayerRaceSelectable  takes player whichPlayer, boolean value returns nothing
 native SetPlayerController      takes player whichPlayer, mapcontrol controlType returns nothing
+// 设置玩家名字
 native SetPlayerName            takes player whichPlayer, string name returns nothing
 
+// 显示/隐藏计分屏显示 [R]
 native SetPlayerOnScoreScreen   takes player whichPlayer, boolean flag returns nothing
 
+// 玩家在的队伍
 native GetPlayerTeam            takes player whichPlayer returns integer
 native GetPlayerStartLocation   takes player whichPlayer returns integer
+// 玩家的颜色
 native GetPlayerColor           takes player whichPlayer returns playercolor
 native GetPlayerSelectable      takes player whichPlayer returns boolean
+// 玩家控制者
 native GetPlayerController      takes player whichPlayer returns mapcontrol
+// 玩家游戏属性
 native GetPlayerSlotState       takes player whichPlayer returns playerslotstate
+// 玩家税率 [R]
 native GetPlayerTaxRate         takes player sourcePlayer, player otherPlayer, playerstate whichResource returns integer
+// 玩家的种族选择
 native IsPlayerRacePrefSet      takes player whichPlayer, racepreference pref returns boolean
+// 玩家名字
 native GetPlayerName            takes player whichPlayer returns string
 
 //============================================================================
 // Timer API
 //
+// 新建计时器 [R]
 native CreateTimer          takes nothing returns timer
+// 删除计时器 [R]
 native DestroyTimer         takes timer whichTimer returns nothing
+// 运行计时器 [C]
 native TimerStart           takes timer whichTimer, real timeout, boolean periodic, code handlerFunc returns nothing
+// 计时器经过的时间
 native TimerGetElapsed      takes timer whichTimer returns real
+// 计时器剩余时间
 native TimerGetRemaining    takes timer whichTimer returns real
+// 计时器初始的时间
 native TimerGetTimeout      takes timer whichTimer returns real
+// 暂停计时器 [R]
 native PauseTimer           takes timer whichTimer returns nothing
+// 恢复计时器 [R]
 native ResumeTimer          takes timer whichTimer returns nothing
+// 事件响应 - 计时器期满
 native GetExpiredTimer      takes nothing returns timer
 
 //============================================================================
 // Group API
 //
+// 新建的单位组 [R]
 native CreateGroup                          takes nothing returns group
+// 删除单位组 [R]
 native DestroyGroup                         takes group whichGroup returns nothing
+// 添加单位 [R]
 native GroupAddUnit                         takes group whichGroup, unit whichUnit returns nothing
+// 移除单位 [R]
 native GroupRemoveUnit                      takes group whichGroup, unit whichUnit returns nothing
+// 清除
 native GroupClear                           takes group whichGroup returns nothing
 native GroupEnumUnitsOfType                 takes group whichGroup, string unitname, boolexpr filter returns nothing
 native GroupEnumUnitsOfPlayer               takes group whichGroup, player whichPlayer, boolexpr filter returns nothing
 native GroupEnumUnitsOfTypeCounted          takes group whichGroup, string unitname, boolexpr filter, integer countLimit returns nothing
 native GroupEnumUnitsInRect                 takes group whichGroup, rect r, boolexpr filter returns nothing
 native GroupEnumUnitsInRectCounted          takes group whichGroup, rect r, boolexpr filter, integer countLimit returns nothing
+// 选取单位添加到单位组(坐标)
 native GroupEnumUnitsInRange                takes group whichGroup, real x, real y, real radius, boolexpr filter returns nothing
+// 选取单位添加到单位组(点)
 native GroupEnumUnitsInRangeOfLoc           takes group whichGroup, location whichLocation, real radius, boolexpr filter returns nothing
+// 选取单位添加到单位组(坐标)(不建议使用)
 native GroupEnumUnitsInRangeCounted         takes group whichGroup, real x, real y, real radius, boolexpr filter, integer countLimit returns nothing
+// 选取单位添加到单位组(点)(不建议使用)
 native GroupEnumUnitsInRangeOfLocCounted    takes group whichGroup, location whichLocation, real radius, boolexpr filter, integer countLimit returns nothing
 native GroupEnumUnitsSelected               takes group whichGroup, player whichPlayer, boolexpr filter returns nothing
 
+// 发送单位组命令到 没有目标
 native GroupImmediateOrder                  takes group whichGroup, string order returns boolean
+// 发布命令(无目标)(ID)
 native GroupImmediateOrderById              takes group whichGroup, integer order returns boolean
+// 发布命令(指定坐标) [R]
 native GroupPointOrder                      takes group whichGroup, string order, real x, real y returns boolean
+// 发送单位组命令到 点
 native GroupPointOrderLoc                   takes group whichGroup, string order, location whichLocation returns boolean
+// 发布命令(指定坐标)(ID)
 native GroupPointOrderById                  takes group whichGroup, integer order, real x, real y returns boolean
+// 发布命令(指定点)(ID)
 native GroupPointOrderByIdLoc               takes group whichGroup, integer order, location whichLocation returns boolean
+// 发送单位组命令到 单位
 native GroupTargetOrder                     takes group whichGroup, string order, widget targetWidget returns boolean
+// 发布命令(指定单位)(ID)
 native GroupTargetOrderById                 takes group whichGroup, integer order, widget targetWidget returns boolean
 
 // This will be difficult to support with potentially disjoint, cell-based regions
 // as it would involve enumerating all the cells that are covered by a particularregion
 // a better implementation would be a trigger that adds relevant units as they enter
 // and removes them if they leave...
+// 选取所有单位在单位组做 多动作
 native ForGroup                 takes group whichGroup, code callback returns nothing
+// 单位组中第一个单位
 native FirstOfGroup             takes group whichGroup returns unit
 
 //============================================================================
 // Force API
 //
+// 新建玩家组 [R]
 native CreateForce              takes nothing returns force
+// 删除玩家组 [R]
 native DestroyForce             takes force whichForce returns nothing
+// 添加玩家 [R]
 native ForceAddPlayer           takes force whichForce, player whichPlayer returns nothing
+// 移除玩家 [R]
 native ForceRemovePlayer        takes force whichForce, player whichPlayer returns nothing
+// 清除玩家
 native ForceClear               takes force whichForce returns nothing
 native ForceEnumPlayers         takes force whichForce, boolexpr filter returns nothing
 native ForceEnumPlayersCounted  takes force whichForce, boolexpr filter, integer countLimit returns nothing
 native ForceEnumAllies          takes force whichForce, player whichPlayer, boolexpr filter returns nothing
 native ForceEnumEnemies         takes force whichForce, player whichPlayer, boolexpr filter returns nothing
+// 选取所有玩家在玩家组做动作(单一的)
 native ForForce                 takes force whichForce, code callback returns nothing
 
 //============================================================================
 // Region and Location API
 //
+// 将坐标转换为区域
 native Rect                     takes real minx, real miny, real maxx, real maxy returns rect
+// 将点转换为区域
 native RectFromLoc              takes location min, location max returns rect
+// 删除矩形区域 [R]
 native RemoveRect               takes rect whichRect returns nothing
+// 设置矩形区域(指定坐标) [R]
 native SetRect                  takes rect whichRect, real minx, real miny, real maxx, real maxy returns nothing
+// 设置矩形区域(指定点) [R]
 native SetRectFromLoc           takes rect whichRect, location min, location max returns nothing
+// 移动矩形区域(指定坐标) [R]
 native MoveRectTo               takes rect whichRect, real newCenterX, real newCenterY returns nothing
+// 移动区域
 native MoveRectToLoc            takes rect whichRect, location newCenterLoc returns nothing
 
+// 区域中心的 X 坐标
 native GetRectCenterX           takes rect whichRect returns real
+// 区域中心的 Y 坐标
 native GetRectCenterY           takes rect whichRect returns real
+// 区域最小 X 坐标
 native GetRectMinX              takes rect whichRect returns real
+// 区域最小 Y 坐标
 native GetRectMinY              takes rect whichRect returns real
+// 区域最大 X 坐标
 native GetRectMaxX              takes rect whichRect returns real
+// 区域最大 Y 坐标
 native GetRectMaxY              takes rect whichRect returns real
 
+// 新建区域 [R]
 native CreateRegion             takes nothing returns region
+// 删除不规则区域 [R]
 native RemoveRegion             takes region whichRegion returns nothing
 
+// 添加区域 [R]
 native RegionAddRect            takes region whichRegion, rect r returns nothing
+// 移除区域 [R]
 native RegionClearRect          takes region whichRegion, rect r returns nothing
 
+// 添加单元点(指定坐标) [R]
 native RegionAddCell           takes region whichRegion, real x, real y returns nothing
+// 添加单元点(指定点) [R]
 native RegionAddCellAtLoc      takes region whichRegion, location whichLocation returns nothing
+// 移除单元点(指定坐标) [R]
 native RegionClearCell         takes region whichRegion, real x, real y returns nothing
+// 移除单元点(指定点) [R]
 native RegionClearCellAtLoc    takes region whichRegion, location whichLocation returns nothing
 
+// 转换坐标到点
 native Location                 takes real x, real y returns location
+// 清除点 [R]
 native RemoveLocation           takes location whichLocation returns nothing
+// 移动点 [R]
 native MoveLocation             takes location whichLocation, real newX, real newY returns nothing
+// X 坐标
 native GetLocationX             takes location whichLocation returns real
+// Y 坐标
 native GetLocationY             takes location whichLocation returns real
 
 // This function is asynchronous. The values it returns are not guaranteed synchronous between each player.
 //  If you attempt to use it in a synchronous manner, it may cause a desync.
+// 点的Z轴高度 [R]
 native GetLocationZ             takes location whichLocation returns real
 
+// 单位检查
 native IsUnitInRegion               takes region whichRegion, unit whichUnit returns boolean
+// 包含坐标
 native IsPointInRegion              takes region whichRegion, real x, real y returns boolean
+// 包含点
 native IsLocationInRegion           takes region whichRegion, location whichLocation returns boolean
 
 // Returns full map bounds, including unplayable borders, in world coordinates
@@ -1021,33 +1148,50 @@ native GetWorldBounds           takes nothing returns rect
 //============================================================================
 // Native trigger interface
 //
+// 新建触发 [R]
 native CreateTrigger    takes nothing returns trigger
+// 删除触发器 [R]
 native DestroyTrigger   takes trigger whichTrigger returns nothing
 native ResetTrigger     takes trigger whichTrigger returns nothing
+// 打开触发器
 native EnableTrigger    takes trigger whichTrigger returns nothing
+// 关掉触发器
 native DisableTrigger   takes trigger whichTrigger returns nothing
+// 触发器是否打开
 native IsTriggerEnabled takes trigger whichTrigger returns boolean
 
 native TriggerWaitOnSleeps   takes trigger whichTrigger, boolean flag returns nothing
 native IsTriggerWaitOnSleeps takes trigger whichTrigger returns boolean
 
+// 匹配的单位
 constant native GetFilterUnit       takes nothing returns unit
+// 选取的单位
 constant native GetEnumUnit         takes nothing returns unit
 
+// 匹配的可毁坏物
 constant native GetFilterDestructable   takes nothing returns destructable
+// 选取的可毁坏物
 constant native GetEnumDestructable     takes nothing returns destructable
 
+// 匹配的物品
 constant native GetFilterItem           takes nothing returns item
+// 选取的物品
 constant native GetEnumItem             takes nothing returns item
 
+// 匹配的玩家
 constant native GetFilterPlayer     takes nothing returns player
+// 选取的玩家
 constant native GetEnumPlayer       takes nothing returns player
 
+// 当前触发器
 constant native GetTriggeringTrigger    takes nothing returns trigger
 constant native GetTriggerEventId       takes nothing returns eventid
+// 触发器赋值统计
 constant native GetTriggerEvalCount     takes trigger whichTrigger returns integer
+// 触发器运行次数统计
 constant native GetTriggerExecCount     takes trigger whichTrigger returns integer
 
+// 运行函数 [R]
 native ExecuteFunc          takes string funcName returns nothing
 
 //============================================================================
@@ -1056,6 +1200,7 @@ native ExecuteFunc          takes string funcName returns nothing
 native And              takes boolexpr operandA, boolexpr operandB returns boolexpr
 native Or               takes boolexpr operandA, boolexpr operandB returns boolexpr
 native Not              takes boolexpr operand returns boolexpr
+// 限制条件为
 native Condition        takes code func returns conditionfunc
 native DestroyCondition takes conditionfunc c returns nothing
 native Filter           takes code func returns filterfunc
@@ -1066,6 +1211,7 @@ native DestroyBoolExpr  takes boolexpr e returns nothing
 // Trigger Game Event API
 //============================================================================
 
+// 变量的值
 native TriggerRegisterVariableEvent takes trigger whichTrigger, string varName, limitop opcode, real limitval returns event
 
     // EVENT_GAME_VARIABLE_LIMIT
@@ -1080,17 +1226,20 @@ native TriggerRegisterTimerExpireEvent takes trigger whichTrigger, timer t retur
 native TriggerRegisterGameStateEvent takes trigger whichTrigger, gamestate whichState, limitop opcode, real limitval returns event
 
 native TriggerRegisterDialogEvent       takes trigger whichTrigger, dialog whichDialog returns event
+// 对话框按钮被点击 [R]
 native TriggerRegisterDialogButtonEvent takes trigger whichTrigger, button whichButton returns event
 
 //  EVENT_GAME_STATE_LIMIT
 constant native GetEventGameState takes nothing returns gamestate
 
+// 比赛游戏事件
 native TriggerRegisterGameEvent takes trigger whichTrigger, gameevent whichGameEvent returns event
   
 // EVENT_GAME_VICTORY
 constant native GetWinningPlayer takes nothing returns player
 
 
+// 单位进入不规则区域(指定条件) [R]
 native TriggerRegisterEnterRegion takes trigger whichTrigger, region whichRegion, boolexpr filter returns event
 
 // EVENT_GAME_ENTER_REGION

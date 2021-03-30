@@ -33,7 +33,6 @@ public:
 	void SetPlayerRaceSelectable(bool value);
 	void SetPlayerController(mapcontrol* controlType);
 	void SetPlayerName(const string& name);
-	string GetPlayerName();
 	void SetPlayerOnScoreScreen(bool flag);
 	int GetPlayerTeam();
 	int GetPlayerStartLocation();
@@ -43,4 +42,5 @@ public:
 	playerslotstate GetPlayerSlotState();
 	int GetPlayerTaxRate(player* otherPlayer, playerstate* whichResource);
 	bool IsPlayerRacePrefSet(racepreference* pref);
+	string GetPlayerName();
 };
