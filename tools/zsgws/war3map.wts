@@ -1,0 +1,181 @@
+﻿STRING 11
+{
+玩者 8
+}
+STRING 12
+{
+玩者 9
+}
+STRING 13
+{
+玩者 10
+}
+STRING 14
+{
+玩者 11
+}
+STRING 15
+{
+玩者 12
+}
+STRING 264
+{
+真．三国无双 V3.9d
+}
+STRING 265
+{
+10
+}
+STRING 267
+{
+Lovemoon03 
+}
+STRING 268
+{
+蜀国
+}
+STRING 269
+{
+魏国
+}
+STRING 1224
+{
+真．三国无双 V3.4Beta
+}
+STRING 1225
+{
+|c00ff80ffV3.4Beta更新内容|R
+|c0080ffff-全武将初始能力总合为60
+-开放Random以及Allrandom
+-蜀国左方桥移除,扩大通道
+-修正匈奴乱走现象|R                           
+                              by lovemoon03
+
+|c000000ffh|r|c000007fft|r|c00000ffft|r|c000016ffp|r|c00001eff:|r|c000025ff/|r|c00002dff/|r|c000034ffw|r|c00003cffa|r|c000043ffr|r|c00004bff3|r|c000052ff.|r|c00005affc|r|c000061ffu|r|c000069ffs|r|c000070fft|r|c000078ffo|r|c00007fffm|r|c000087ff.|r|c00008effi|r|c000096ffd|r|c00009dffv|r|c0000a5ff.|r|c0000acfft|r|c0000b4ffw|r|c0000bbff/|r|c0000c3ffi|r|c0000caffn|r|c0000d2ffd|r|c0000d9ffe|r|c0000e1ffx|r|c0000e8ff.|r|c0000f0ffp|r|c0000f7ffh|r|c0000ffffp|r
+                                                                
+                                                               
+
+}
+STRING 1383
+{
+|CFF66FF00吴军出现在南方，似乎跟刘备串通，
+开始攻击魏国了！|R
+}
+STRING 1392
+{
+|CFF66FF00匈奴出现在北方，似乎跟曹操串通，
+开始攻击蜀国了！|R
+}
+STRING 1447
+{
+|c00ff0000真|r|c00ff0913．|r|c00ff1327三|r|c00ff1d3a国|r|c00ff274e无|r|c00ff3162双|r|c00ff3b75V|r|c00ff44893|r|c00ff4e9c.|r|c00ff58b09d|r  |c00ff58b0简体中文版|R
+
+|c000000ffM|r|c00000fffa|r|c00001fffp|r|c00002fff |r|c00003fffb|r|c00004fffy|r|c00005fff |r|c00006fffL|r|c00007fffo|r|c00008fffv|r|c00009fffe|r|c0000afffm|r|c0000bfffo|r|c0000cfffo|r|c0000dfffn|r|c0000efff0|r|c0000ffff3|r  |c0000ffffU9:ZWS简体化|r
+
+|c0000ffff论坛地址 繁体http://war3.custom.idv.tw/ 简体http://bbs.uuu9.com/|r
+}
+STRING 4037
+{
+蜀国谷仓被破坏了!
+所有魏国武将获得800两
+}
+STRING 4039
+{
+魏国谷仓被破坏了!
+所有蜀国武将获得800两
+}
+STRING 5574
+{
+似乎开始下起雨来了.
+地面泥泞使得士兵难以行军.
+}
+STRING 5578
+{
+雨势已经停下来了.
+}
+STRING 5579
+{
+似乎起了浓厚的大雾.
+白茫茫的一片，士兵攻击敌人开始有失误的现象.
+}
+STRING 5580
+{
+浓雾似乎已经散去了.
+}
+STRING 5758
+{
+下起了大雪.
+雪地使得士兵寸步难行，手脚冰冷.
+}
+STRING 5759
+{
+大雪似乎已经停止了.
+}
+STRING 6689
+{
+玩者 2
+}
+STRING 6690
+{
+玩者 3
+}
+STRING 6691
+{
+玩者 4
+}
+STRING 6692
+{
+玩者 5
+}
+STRING 6693
+{
+玩者 6
+}
+STRING 7260
+{
+模组制作 Shockwave.
+模组压缩.制作 Black_Stan.
+特别感谢Danny触发指导
+计分版BUG修正 seiyavenus.
+赵云模组制作 Amosa.
+马超技能提供 seiyavenus. 
+-ar系统提供 ponxsnsu.
+于禁角色制作 invander.
+赵云击退技能制作 Danny0838.
+特别感谢封闭测试人员们
+以及朱老师魔兽教室的版友
+}
+STRING 9001
+{
+似乎开始下起雨来了.
+地面泥泞使得士兵难以行军.
+}
+STRING 9002
+{
+雨势已经停下来了.
+}
+STRING 9013
+{
+似乎起了浓厚的大雾.
+白茫茫的一片，士兵攻击敌人开始有失误的现象.
+}
+STRING 9014
+{
+浓雾似乎已经散去了.
+}
+STRING 9017
+{
+下起了大雪.
+雪地使得士兵寸步难行，手脚冰冷.
+}
+STRING 9018
+{
+大雪似乎已经停止了.
+}
+STRING 9469
+{
+原作者:lovemoon03 
+模组制作:Black_Stan. Shockwave
+U9简体中文版制作:ZWS
+}
+

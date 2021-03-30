@@ -1,0 +1,10 @@
+[FrameDef]
+UPKEEP_NONE=|Cff00ff00by lovemoon03
+UPKEEP_HIGH=|Cffff0000by lovemoon03
+UPKEEP_LOW=|Cffffff00by lovemoon03
+
+[Errors]
+Targethero=必須對準一位武將。
+Targetenemyhero=必須對準一個敵方武將。
+Nohero=無法指定武將們。
+
