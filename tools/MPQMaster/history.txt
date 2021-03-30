@@ -1,0 +1,45 @@
+2004-02-08 v1.0.0 build 31
+==========================
+[!] Fixed language translation problem
+[!] Changed listfile selecting style
+
+2004-02-04 v0.9.1 build 28
+==========================
+[+] Added some options to ini file for settings storage
+[!] Minor bug fix
+[!] Changed MPQ Lib to support highest compression of zlib in multi type compression
+
+2004-02-04 v0.9.0 build 26
+==========================
+[o] First public release
+[+] Completed Listfile GUI/Menu Item
+[+] Fixed some bugs
+
+2004-02-03 v0.8.0 build 23
+==========================
+[o] First stable beta version
+[+] Completed GUI
+[+] Added multilanguage function(with API Interface)
+
+2004-02-02 v0.5.0 build 15
+==========================
+[o] Last alpha version
+[+] Fixed MpqLib again
+[+] Added more GUI elements
+
+2004-02-01 v0.3.0 build 9
+=========================
+[o] Alpha version of all functions
+[!] Fixed Writable functions
+[!] Fixed MpqLib
+
+2004-01-27 v0.1.0 build 4
+=========================
+[o] Period test alpha version
+[+] Read functions completed
+
+2004-01-22 v0.0.1 build 1
+=========================
+[o] Speed test alpha
+[+] MpqLib
+[+] Basic GUI
