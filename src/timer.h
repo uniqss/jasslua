@@ -11,7 +11,7 @@ public:
 public:
 	static timer* CreateTimer();
 	void DestroyTimer();
-	void TimerStart(double timeout, bool periodic, std::function<void> handlerFunc);
+	void TimerStart(double timeout, bool periodic, std::function<void(void)> handlerFunc);
 	double TimerGetElapsed();
 	double TimerGetRemaining();
 	double TimerGetTimeout();

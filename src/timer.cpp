@@ -28,24 +28,24 @@ void timer::DestroyTimer()
 	delete this;
 }
 
-void timer::TimerStart(double timeout, bool periodic, std::function<void> handlerFunc)
+void timer::TimerStart(double timeout, bool periodic, std::function<void(void)> handlerFunc)
 {
 
 }
 
 double timer::TimerGetElapsed()
 {
-
+	return 0;
 }
 
 double timer::TimerGetRemaining()
 {
-
+	return 0;
 }
 
 double timer::TimerGetTimeout()
 {
-
+	return 0;
 }
 
 void timer::PauseTimer()
@@ -60,5 +60,5 @@ void timer::ResumeTimer()
 
 timer* timer::GetExpiredTimer()
 {
-
+	return nullptr;
 }

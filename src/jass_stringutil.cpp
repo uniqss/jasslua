@@ -1,5 +1,20 @@
 #include "jass_stringutil.h"
 
+int64_t I(const std::string& s) {
+	int64_t ret = 0;
+	for (int i = std::min((int)s.size() - 1, 7); i >= 0; i--)
+	{
+		ret = (ret << 8) | (char)s[i];
+	}
+	return ret;
+}
+std::string S(int64_t i64) {
+	char ret[9];
+	memcpy(ret, &i64, 8);
+	ret[8] = 0;
+	return ret;
+}
+
 double I2R(int i) { return (double)i; }
 int R2I(double d) { return (int)d; }
 std::string I2S(int i) { return std::to_string(i); }
@@ -22,6 +37,8 @@ int GetLocalizedHotkey(const std::string& s) { return 0; }
 
 void jass_stringutil::jasslua_regist_stringapi(sol::state_view lua)
 {
+	lua.set("I", I);
+	lua.set("S", S);
 	lua.set("I2R", I2R);
 	lua.set("R2I", R2I);
 	lua.set("I2S", I2S);
