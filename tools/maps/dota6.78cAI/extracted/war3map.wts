@@ -1,0 +1,138 @@
+STRING 39999
+{
+Notice: Strings for AI-msg and Multiboards will be removed from the script. Now anyone can translate the AI-str by modifiying the bottom part of itemstrings.txt .
+}
+STRING 49998
+{
+You may put one gold bonus modifier and one exp bonus modifier gamemode. Alternatively, put one hybrid modifier.
+
+Exp bonus modifier gamemode:
+|c00dd8dffDefault|r: Depending on AI difficulty, +20%/45%/80% exp rate.
+|c00dd8dff-normexp (-ne)|r: Disables all kind of exp bonus.
+|c00dd8dff-highexp (-he)|r: Depending on AI difficulty, change default bonus exp rate to +40%/70%/110%.
+|c00dd8dff-dynaexp (-de)|r: For each time the AI is killed, +35% exp rate. For each 3 minutes the AI spend without kill, +17.5% exp rate (starting from 5th minute). For each kill, the bonus is decreased by 33%, and for each assist by 25%. Maximum bonus of 200%.
+
+Gold bonus modifier gamemode:
+|c00dd8dffDefault|r: Depending on AI difficulty, +0/4/8 gold per 7 sec. Also includes small starting gold bonus.
+|c00dd8dff-normgold (-ng)|r: Disables all kind of gold bonus.
+|c00dd8dff-highgold (-hg)|r: +8 gold per 7 sec. +10% starting gold.
+|c00dd8dff-dynagold (-dg)|r: For each time the AI is killed, +5 gold per 7 sec. For each 3 minutes the AI spend without kill, +2.5 gold per 7 sec (starting from 5th minute). For each kill, the bonus is decreased by 33%, and for each assist by 25%. Maximum bonus of 72 gold per 7 sec.
+
+Hybrid modifier:
+|c00dd8dff-beginnermode (-bm)|r: Equal to normexp + normgold
+|c00dd8dff-advancedmode (-am)|r: Equal to highexp + highgold + dynaexp + dynagold
+|c00dd8dff-xtrememode   (-xm)|r: Equal to normexp + normgold + dynaexp + dynagold, but the dynamic bonus is much higher
+}
+STRING 49999
+{
+This AI has been adapted from the scripts created by Cloud_str, RGB and BuffMePlz. Me and the AITeam@PlayDota are working to improve compatibility as DotA changes, but main credits go to them.
+
+AI updates can be found at http://dota-pbmn.blogspot.com/
+
+AI content by PleaseBugMeNot aka PBMN, Cloud_str, Ciel & AITeam
+}
+
+STRING 50000
+{
+DotA v6.78c |c00dd8dffAI 1.4e|r |c00fff864"Farewell"|r
+}
+
+STRING 50001
+{
+Choose from 112 unique heroes in an epic battle to defend the Ancients.
+
+More information at |c001e90ffwww.PlayDotA.com|r
+}
+
+STRING 50002
+{
+|c00ff0303The Sentinel|r
+}
+
+STRING 50003
+{
+|c0020c000The Scourge|r
+}
+
+STRING 50004
+{
+Contacts
+}
+
+STRING 50005
+{
+You can reach me via PM on |c000042ffPlayDotA.com|r or through email (IceFrog@gmail.com)
+
+I have a personal blog at IceFrog.com
+
+If you find any have suggestions, comments or questions please let me know.
+}
+
+STRING 50006
+{
+Modes & Commands
+}
+
+STRING 50007
+{
+Full List:
+|c000042ffPlayDotA.com/learn/commands|r
+
+Game Modes:
+-allpick(-ap), -allrandom(-ar), -randomdraft (-rd), -extendedleague (-xl), -singledraft(-sd), -deathmatch(-dm), -captainsmode(-cm), -leaguemode(-lm), -mirrormatch(-mm), -teamrandom(-tr),  -moderandom(-mr), -voterandom(-vr), -reverse(-rv), -duplicatemode(-du), -shuffleplayers(-sp), -samehero(-sh), -allagility(-aa), -allintelligence(-ai), -allstrength(-as), -itemdrop(-id), -easymode(-em), -nopowerups(-np), -supercreeps(-sc), -onlymid(-om), -notop(-nt), -nomid(-nm), -nobot(-nb), -noswap(-ns), -norepick(-nr), -poolingmode(-pm), -observerinfo(-oi), -miniheroes(-mi), -fastrespawn(-fr), -meleeonly(-mo), -rangeonly(-ro), -experimentalrunes(-er)
+
+Game Commands:
+-ma, -ms, -cs, -cson, -csoff, -disablehelp, -enablehelp, -unstuck, -recreate, -swaphero, -showmsg, -hidemsg, -showdeny, -hidedeny, -weather rain, -weather snow, -weather moonlight, -weather wind, -weather random, -weather off, -denyinfo (-di), -deathon(-don), -deathoff(-doff), -roll, -hideheronames(-hhn), -test, -mute, -gameinfo, -kickafk, -afkinfo, -apm, -clear, -swapall, -courier, -ah, -list, -rolloff, -rollon, -music, -water, -itemswap, -quote, -bonus, -switch, -terrain
+}
+
+STRING 50008
+{
+Credits
+}
+
+STRING 50009
+{
+First and foremost, thanks to everyone in the community for always providing me with feedback and supporting the map.
+
+Some people that have helped in one form or another include, but not limited to: Ki-Hunterkiller, arthur5863, Neichus, MYM|Merlini, coL.Warr1ck, Zetta, Plastic.Angel, TheRandomDude, Naz, IEatDeadPeoples, MYM|Maelk, RodOfNod, DamnNoHtml, Jazradel, Mercurial, Trystero, Philip.J.Fry, Cottontop, Minotaar, Switch, Terrorblaze, Ro-Coco, unHOLYdoNUTS, Akuryou, Sejr, Sledgehmr, eva00r, TheMantis, Ska_Goblin, ~PGRu-Unexpect3D, PitzerMike, snork, M3Th0dz, Jazradel, War-Mage, Malle, seerTneerGevoLI, Vexorian, MetallibaN, sSerenity, Mago-Merlino, Vodoun, antiweltteilchen, coldlikehell, iNCQRiT, Infrisios, BeamCannon, LulaLula, Beast_Pete, Wedge, p0c, jmesch04, tinfoiltank, Guyoverthere, SetzerGabbiani, Danat, Pipedream, Rubadub, UTDC.Justin, ArcheKleine, eldorquo, Chairraider, Slam, Toadcop and Lordshinjo. Many others have contributed in some form or another, thank you.
+
+This map has been written entirely from scratch. Even though the map has completely evolved from its earlier stages, various ideas are credited to AoS on StarCraft, Euls for the first DotA on ROC and then Meian/Guinsoo on TFT.
+
+Due to space limitations in this window, I cannot list everything here. For other contributors and resource credits, please visit getdota.com/ResourceCredits.txt
+}
+
+STRING 50010
+{
+Latest Map
+}
+
+STRING 50011
+{
+http://www.getdota.com to get the latest map.
+
+If you are looking for the latest Warcraft 3 patch, go to http://www.getdota.com/patch
+}
+
+STRING 50012
+{
+Beta Signup
+}
+
+STRING 50013
+{
+If you would like to help beta test the new updates, sign up at: 
+
+http://www.getdota.com/beta
+}
+
+STRING 50014
+{
+Bug Reporting
+}
+
+STRING 50015
+{
+Report any bugs to http://www.getdota.com/bugs
+
+You can also email them to me at IceFrog@gmail.com 
+}

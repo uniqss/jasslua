@@ -1,0 +1,42 @@
+﻿[FrameDef]
+BONUS_ATTACK_SPEED=-Each point increases attack speed by 1% |n
+BONUS_DAMAGE=-Each point increases damage by 1
+BONUS_HPREGEN=-Each point increases hit point regen |n
+BONUS_HITPOINTS=-Each point increases hit points by %d
+BONUS_MANA=-Each point increases mana by %d
+BONUS_MANAREGEN=-Each point increases mana regen |n
+BONUS_DEFENSE=-Every %d points increase armor by %d
+BONUS_DEFENSE_FIXED=-Every %d points increase armor by 1
+KEY_QUESTS=Map Info (|Cfffed312F9|R)
+QUESTS=Map Info
+UPKEEP_NONE=v6.78c |c00dd8dffAI 1.4e|r
+RESOURCE_UBERTIP_UPKEEP=If you find any bugs or have any questions or comments send me an email at |cffafc0deIceFrog@gmail.com|r
+RESOURCE_UBERTIP_GOLD=Gold is given as a reward for killing enemy units and heroes. Gold is also granted periodically.
+RESOURCE_UBERTIP_LUMBER=
+DAMAGETIP_CHAOS=Chaos attacks do 40% damage to Fortified Armor.
+RESOURCES_COLUMN0=Gold
+COLON_GOLD_INCOME_RATE=Latest Version: www.getdota.com|c22222222
+RESOURCE_UBERTIP_UPKEEP_INFO=. |n|nOfficial Site: |c000042ffwww.PlayDotA.com|r
+COLON_FOOD_MAX=
+COLON_FOOD_PROVIDED=
+COLON_FOOD_USED=
+COLON_FOOD=Seconds:
+RESOURCES_COLUMN1=
+COLON_LUMBER_INCOME_RATE=
+LUMBER=
+COLON_LUMBER=Minutes:
+RESOURCE_UBERTIP_SUPPLY=
+IDLE_PEON=Idle Courier (|Cfffed312F8|R)
+QUESTSMAIN=
+QUESTSOPTIONAL=
+[Errors]
+Needemptytree=That tree already has eyes.
+Nolumber=You do not need a recipe for this item. Buy the components listed in the recipe instead.
+Alreadydoomed=Cannot target this unit until after the item-silence effect is removed.
+[CustomSkin]
+DefaultButton=ReplaceableTextures\CommandButtons\BTNBansheeMaster.blp
+NoLumberSound=InterfaceError
+SupplyIcon=ReplaceableTextures\WorldEditUI\LocationBrush00.blp
+LumberIcon=UI\Widgets\BattleNet\bnet-tournament-clock
+IdlePeon=ReplaceableTextures\CommandButtons\BTNGargoyle.blp
+CommandButtonCooldown=Interface\CoolDown UI.mdx
