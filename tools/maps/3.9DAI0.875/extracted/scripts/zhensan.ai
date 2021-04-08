@@ -604,7 +604,8 @@ function O101I takes integer ic returns string
 	endif
 	return s
 endfunction
-function O10OI takes string s returns nothing
+// 游戏开始时播放指定声音且显示文字
+function PlaySoundAndDisplayText takes string s returns nothing
 	call StartSound(O01)
 	call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 10, "|cFFFF0000" + s + "|r")
 endfunction
@@ -17034,7 +17035,7 @@ endfunction
 function main takes nothing returns nothing
 	local unit u
 	local group g
-	call O10OI("StartMapAI zhensan AI")
+	call PlaySoundAndDisplayText("StartMapAI zhensan AI ------ hello by uniqs.")
 	call I00O0I(1211117624, 600, 2.13, 20, 26, 1.25, 19, 15, 26, 3, 1093679159, 1093679157, 1093679169, 1093679155, 1093679177, 1, 6, "诸葛亮")
 	call I00O0I(1328558131, 100, 2., 27, 49, 2., 25, 20, 15, 1, 1093677361, 1093677138, 1093677123, 1093677121, 1096904043, 0, 0, "关羽")
 	call I00O0I(1328558130, 128, 1.9, 22, 32, 1.55, 25, 17, 15, 1, 1093678167, 1093677113, 1097688946, 1093677110, 1096904043, 0, 3, "张飞")
