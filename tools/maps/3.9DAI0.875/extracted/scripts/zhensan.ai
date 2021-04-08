@@ -11,7 +11,7 @@ globals
 	boolean II1 = true
 	boolean IO1 = true
 	boolean O11 = false
-	sound O01 = CreateSound("Sound\\Interface\\InGameChatWhat1.wav", false, false, false, 10, 10, "")
+	sound soundInGameChatWhat1 = CreateSound("Sound\\Interface\\InGameChatWhat1.wav", false, false, false, 10, 10, "")
 	constant real OI1 = 180. / 3.14159
 	boolean OO1 = false
 	integer array I10
@@ -420,9 +420,9 @@ globals
 	real array OII10
 	real array OII00
 	real array OIII0
-	integer array OIIO0
-	integer array OIO10
-	integer array OIO00
+	integer array arrHeroStr
+	integer array arrHeroAgi
+	integer array arrHeroInt
 	integer array OIOI0
 	integer array OIOO0
 	integer OO110 = 0
@@ -458,7 +458,7 @@ globals
 	integer array I1OII
 	integer array I010I
 	integer array I01II
-	string array I01OI
+	string array arrHeroName
 	player array I001I
 	player array I000I
 endglobals
@@ -483,7 +483,7 @@ function IO1OI takes string s returns nothing
 		set t = 999
 	endif
 	call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, t, "|cffffcc00" + s + "|r")
-	call StartSound(O01)
+	call StartSound(soundInGameChatWhat1)
 endfunction
 function IO01I takes real IO00I returns real
 	if IO00I < 0 then
@@ -604,19 +604,23 @@ function O101I takes integer ic returns string
 	endif
 	return s
 endfunction
+
 // 游戏开始时播放指定声音且显示文字
-function PlaySoundAndDisplayText takes string s returns nothing
-	call StartSound(O01)
-	call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 10, "|cFFFF0000" + s + "|r")
+function PlaySoundAndDisplayText takes string strDisplayText returns nothing
+	call StartSound(soundInGameChatWhat1)
+	call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 10, "|cFFFF0000" + strDisplayText + "|r")
 endfunction
+
 function IsDay takes nothing returns boolean
-	local real O1I1I = GetFloatGameState(GAME_STATE_TIME_OF_DAY)
-	return(O1I1I < 18) and(O1I1I >= 6)
+	local real timeOfDay = GetFloatGameState(GAME_STATE_TIME_OF_DAY)
+	return(timeOfDay < 18) and(timeOfDay >= 6)
 endfunction
-function O1I0I takes nothing returns boolean
-	local real O1I1I = GetFloatGameState(GAME_STATE_TIME_OF_DAY)
-	return(O1I1I >= 18) or(O1I1I < 6)
+
+function IsNight takes nothing returns boolean
+	local real timeOfDay = GetFloatGameState(GAME_STATE_TIME_OF_DAY)
+	return(timeOfDay >= 18) or(timeOfDay < 6)
 endfunction
+
 function O1III takes unit u returns boolean
 	return(IsUnitVisible(u, I)) or(IsUnitDetected(u, I))
 endfunction
@@ -4365,7 +4369,7 @@ function O00IO1 takes nothing returns unit
 		if IO0I11() then
 			set O0110 = true
 		endif
-		set OI1O1 = I01OI[OIO01]
+		set OI1O1 = arrHeroName[OIO01]
 		set I001 = GetHeroLevel(IIIO1)
 		set OI011 = GetHeroSkillPoints(IIIO1)
 		if IIO011() then
@@ -4396,7 +4400,7 @@ function O00O11 takes unit u returns boolean
 	set I = GetOwningPlayer(u)
 	set OI1I1 = GetUnitTypeId(IIIO1)
 	set OIO01 = GetUnitPointValueByType(OI1I1)
-	set OI1O1 = I01OI[OIO01]
+	set OI1O1 = arrHeroName[OIO01]
 	set O1OO0 = O00II1(IIIO1)
 	call I1I001(IIIO1, false)
 	if IIIO11() then
@@ -9644,7 +9648,7 @@ function IOO100 takes nothing returns nothing
 		set IOOI10 = true
 	endif
 	if IIO1I1() then
-		if IOO1I0 and O1I0I() and I001 > 1 and OOI > 400 and II0OO0() then
+		if IOO1I0 and IsNight() and I001 > 1 and OOI > 400 and II0OO0() then
 			set IOO0O0 = 1
 		endif
 		if IOO1O0 and(I001 == 5) and OOI > 400 and II0OO0() then
@@ -9652,7 +9656,7 @@ function IOO100 takes nothing returns nothing
 		endif
 	endif
 	if IIO111() then
-		if IOO1I0 and O1I0I() and I001 > 2 and OOI > 350 and II0000() then
+		if IOO1I0 and IsNight() and I001 > 2 and OOI > 350 and II0000() then
 			set IOO0O0 = 1
 		endif
 		if IOO1I0 and I001 > 5 and OOI > 550 and II0110() then
@@ -16998,26 +17002,26 @@ function I00III takes nothing returns nothing
 	call RemoveUnit(u)
 	set u = null
 endfunction
-function I00O0I takes integer v1, integer v2, real v3, real v4, real v5, real v6, integer v7, integer v8, integer v9, integer I00OII, integer s1, integer s2, integer s3, integer s4, integer s5, integer fl, integer cs, string nm returns nothing
-	local integer IIIII = GetUnitPointValueByType(v1)
-	set OIOI0[IIIII]= v1
-	set OI0I0[IIIII]= v2
-	set OI0O0[IIIII]= v3
-	set OII10[IIIII]= v4
-	set OII00[IIIII]= v5
-	set OIII0[IIIII]= v6
-	set OIIO0[IIIII]= v7
-	set OIO10[IIIII]= v8
-	set OIO00[IIIII]= v9
-	set OIOO0[IIIII]= I00OII
-	set I1III[IIIII]= s1
-	set I1IOI[IIIII]= s2
-	set I1O1I[IIIII]= s3
-	set I1O0I[IIIII]= s4
-	set I1OII[IIIII]= s5
-	set I010I[IIIII]= fl
-	set I01II[IIIII]= cs
-	set I01OI[IIIII]= nm
+function I00O0I takes integer v1, integer v2, real v3, real v4, real v5, real v6, integer str, integer agi, integer int, integer I00OII, integer s1, integer s2, integer s3, integer s4, integer s5, integer fl, integer cs, string nm returns nothing
+	local integer idx = GetUnitPointValueByType(v1)
+	set OIOI0[idx]= v1
+	set OI0I0[idx]= v2
+	set OI0O0[idx]= v3
+	set OII10[idx]= v4
+	set OII00[idx]= v5
+	set OIII0[idx]= v6
+	set arrHeroStr[idx]= str
+	set arrHeroAgi[idx]= agi
+	set arrHeroInt[idx]= int
+	set OIOO0[idx]= I00OII
+	set I1III[idx]= s1
+	set I1IOI[idx]= s2
+	set I1O1I[idx]= s3
+	set I1O0I[idx]= s4
+	set I1OII[idx]= s5
+	set I010I[idx]= fl
+	set I01II[idx]= cs
+	set arrHeroName[idx]= nm
 endfunction
 function I0I11I takes integer IIIII, integer I0I10I, integer OI00O1, boolean b1, boolean b2, integer v1, integer v2, integer v3, integer v4, integer v5, integer v6, real v7 returns nothing
 	set OO100[IIIII]= I0I10I
@@ -17035,7 +17039,7 @@ endfunction
 function main takes nothing returns nothing
 	local unit u
 	local group g
-	call PlaySoundAndDisplayText("StartMapAI zhensan AI ------ hello by uniqs.")
+	call PlaySoundAndDisplayText("StartMapAI zhensan AI ------ hello by uniqs.中文貌似会被忽略掉~~~")
 	call I00O0I(1211117624, 600, 2.13, 20, 26, 1.25, 19, 15, 26, 3, 1093679159, 1093679157, 1093679169, 1093679155, 1093679177, 1, 6, "诸葛亮")
 	call I00O0I(1328558131, 100, 2., 27, 49, 2., 25, 20, 15, 1, 1093677361, 1093677138, 1093677123, 1093677121, 1096904043, 0, 0, "关羽")
 	call I00O0I(1328558130, 128, 1.9, 22, 32, 1.55, 25, 17, 15, 1, 1093678167, 1093677113, 1097688946, 1093677110, 1096904043, 0, 3, "张飞")
