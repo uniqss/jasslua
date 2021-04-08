@@ -2831,52 +2831,52 @@ function setAIPlayerName takes nothing returns nothing
 		set O1O1 = "I "
 	endif
 	if IIIO11() then
-		set O1O1 = O1O1 + "star_1ee"
+		set O1O1 = O1O1 + "AIStar_1ee"
 	endif
 	if IIO1I1() then
-		set O1O1 = O1O1 + "梅川内酷"
+		set O1O1 = O1O1 + "AIMerry"
 	endif
 	if IIO111() then
-		set O1O1 = O1O1 + "追风客"
+		set O1O1 = O1O1 + "AIWind"
 	endif
 	if IIO101() then
-		set O1O1 = O1O1 + "real_long"
+		set O1O1 = O1O1 + "AIReal_long"
 	endif
 	if IIIOI1() then
-		set O1O1 = O1O1 + "Destiny尧"
+		set O1O1 = O1O1 + "AIDestiny"
 	endif
 	if IIIO01() then
-		set O1O1 = O1O1 + "b124489418"
+		set O1O1 = O1O1 + "AIB124489418"
 	endif
 	if IIO001() then
-		set O1O1 = O1O1 + "春哥"
+		set O1O1 = O1O1 + "AIBrotherChun"
 	endif
 	if IIIOO1() then
-		set O1O1 = O1O1 + "张辽"
+		set O1O1 = O1O1 + "AIZhangLiao"
 	endif
 	if IIO1O1() then
-		set O1O1 = O1O1 + "Amorous"
+		set O1O1 = O1O1 + "AIAmorous"
 	endif
 	if IIO0I1() then
-		set O1O1 = O1O1 + "风之调"
+		set O1O1 = O1O1 + "AIWindStyle"
 	endif
 	if IIO011() then
-		set O1O1 = O1O1 + "roustar31"
+		set O1O1 = O1O1 + "AIRoustar31"
 	endif
 	if IIO0O1() then
-		set O1O1 = O1O1 + "团团"
+		set O1O1 = O1O1 + "AITanTan"
 	endif
 	if IIOIO1() then
-		set O1O1 = O1O1 + "孙权"
+		set O1O1 = O1O1 + "AISunQuan"
 	endif
 	if IIOI01() then
-		set O1O1 = O1O1 + "马岱"
+		set O1O1 = O1O1 + "AIMaDai"
 	endif
 	if IIOII1() then
-		set O1O1 = O1O1 + "张合"
+		set O1O1 = O1O1 + "AIZhangHe"
 	endif
 	if IIOI11() then
-		set O1O1 = O1O1 + "宫本武藏"
+		set O1O1 = O1O1 + "AIGongBenWuZang"
 	endif
 	call SetPlayerName(I, O1O1)
 endfunction
@@ -3771,7 +3771,7 @@ endfunction
 function O1OI01 takes nothing returns nothing
 	local integer IIIII = 0
 	local real O1OII1 = 999999
-	local unit O1OIO1 = null
+	local unit tmpUnit = null
 	local unit II11O1 = null
 	local integer I1O011 = 0
 	loop
@@ -3779,39 +3779,39 @@ function O1OI01 takes nothing returns nothing
 		set II11O1 = II0I0[IIIII]
 		set I1O011 = I1O011 + 1
 		if II11O1 != null and I00I01(II11O1)< O1OII1 and UnitAlive(II11O1) and I00I01(II11O1)> 0 then
-			set O1OIO1 = II11O1
+			set tmpUnit = II11O1
 			set O1OII1 = I00I01(II11O1)
 		endif
 		set IIIII = IIIII + 1
 	endloop
 	set I11O0 = O1OII1
-	set OOOO1 = O1OIO1
-	set O1OIO1 = null
+	set OOOO1 = tmpUnit
+	set tmpUnit = null
 	set II11O1 = null
 endfunction
 function O1OO11 takes nothing returns nothing
 	local integer IIIII = 0
 	local real O1OII1 = 999999
-	local unit O1OIO1 = null
+	local unit tmpUnit = null
 	local unit II11O1 = null
 	loop
 	exitwhen IIIII == 20
 		set II11O1 = II0O0[IIIII]
 		if II11O1 != null and I00I01(II11O1)< O1OII1 and UnitAlive(II11O1) and I00I01(II11O1)> 0 then
-			set O1OIO1 = II11O1
+			set tmpUnit = II11O1
 			set O1OII1 = I00I01(II11O1)
 		endif
 		set IIIII = IIIII + 1
 	endloop
 	set I11I0 = O1OII1
-	set OOOI1 = O1OIO1
-	set O1OIO1 = null
+	set OOOI1 = tmpUnit
+	set tmpUnit = null
 	set II11O1 = null
 endfunction
 function O1OO01 takes nothing returns nothing
 	local real O1OII1 = 999999
 	local real I01111 = 0
-	local unit O1OIO1 = null
+	local unit tmpUnit = null
 	local unit II11O1 = null
 	local integer IIIII = 0
 	if OI101 then
@@ -3826,7 +3826,7 @@ function O1OO01 takes nothing returns nothing
 				set I01111 = I00I01(II11O1)/(III10[IIIII]-I00I01(II11O1))
 				set I01111 = IO01I(I01111)
 				if I01111 < O1OII1 then
-					set O1OIO1 = II11O1
+					set tmpUnit = II11O1
 					set O1OII1 = I01111
 				endif
 			endif
@@ -3837,14 +3837,14 @@ function O1OO01 takes nothing returns nothing
 		set IIIII = IIIII + 1
 	endloop
 	set I1O10 = O1OII1
-	set OOOI1 = O1OIO1
+	set OOOI1 = tmpUnit
 	if I0II11(OOOI1)> 90 then
 		set I1O10 = 999999
 		set OOOI1 = null
 	endif
 	set I0000 = OOI -I0010
 	set I0010 = OOI
-	set O1OIO1 = null
+	set tmpUnit = null
 	set II11O1 = null
 endfunction
 function T4 takes nothing returns integer
@@ -3869,7 +3869,7 @@ endfunction
 function O1OOI1 takes nothing returns nothing
 	local real O1OII1 = 999999
 	local real I01111 = 0
-	local unit O1OIO1 = null
+	local unit tmpUnit = null
 	local unit II11O1 = null
 	local integer IIIII = 0
 	local real O1OOO1 = 0
@@ -3911,7 +3911,7 @@ function O1OOI1 takes nothing returns nothing
 		if I1IO0 < 5 then
 		endif
 	endif
-	set O1OIO1 = null
+	set tmpUnit = null
 	set II11O1 = null
 endfunction
 function O01101 takes nothing returns nothing
@@ -4455,38 +4455,38 @@ function O00OI1 takes player p returns unit
 	return ru
 endfunction
 function O00OO1 takes nothing returns nothing
-	local integer IIIII
-	local player O0I111 = null
+	local integer idx
+	local player tmpPlayer = null
 	local integer O0I101 = 0
 	local integer O0I1I1 = 0
-	local unit O1OIO1 = null
+	local unit tmpUnit = null
 	if O1I01 + O1II1 >= O1IO1 and O1IO1 > 0 then
 		return
 	endif
-	set IIIII = 1
+	set idx = 1
 	set O1IO1 = 0
 	loop
-		set O0I111 = Player(IIIII)
-		if((GetPlayerSlotState(O0I111)== PLAYER_SLOT_STATE_PLAYING) and(IIIII != 6)) then
+		set tmpPlayer = Player(idx)
+		if((GetPlayerSlotState(tmpPlayer)== PLAYER_SLOT_STATE_PLAYING) and(idx != 6)) then
 			set O1IO1 = O1IO1 + 1
-			set O1OIO1 = O00I01(O0I111)
-			if O1OIO1 != null then
-				if IsPlayerAlly(I, O0I111) then
-					set IO011[O0I101]= O1OIO1
+			set tmpUnit = O00I01(tmpPlayer)
+			if tmpUnit != null then
+				if IsPlayerAlly(I, tmpPlayer) then
+					set IO011[O0I101]= tmpUnit
 					set O0I101 = O0I101 + 1
 				else
-					set IO001[O0I1I1]= O1OIO1
+					set IO001[O0I1I1]= tmpUnit
 					set O0I1I1 = O0I1I1 + 1
 				endif
 			endif
 		endif
-		set IIIII = IIIII + 1
-	exitwhen IIIII == 12
+		set idx = idx + 1
+	exitwhen idx == 12
 	endloop
 	set O1I01 = O0I101
 	set O1II1 = O0I1I1
-	set O0I111 = null
-	set O1OIO1 = null
+	set tmpPlayer = null
+	set tmpUnit = null
 endfunction
 function O0I1O1 takes nothing returns nothing
 	local integer IIIII = 0
@@ -6998,7 +6998,7 @@ function I111O0 takes unit I111I0 returns nothing
 endfunction
 function I11010 takes location III101 returns boolean
 	local integer I11000 = 0
-	local unit O1OIO1 = null
+	local unit tmpUnit = null
 	local location I110I0 = null
 	local real I110O0 = 0
 	local real I11I10 = 0
@@ -7022,8 +7022,8 @@ function I11010 takes location III101 returns boolean
 			set I11I10 = .26
 		endif
 	endif
-	set O1OIO1 = O1IIO1(IIIO1, 900, false)
-	if O1OIO1 == null then
+	set tmpUnit = O1IIO1(IIIO1, 900, false)
+	if tmpUnit == null then
 		if I1IIO1()> 63 and I1IIO1()< 100 then
 			set O01I1 = false
 			return false
@@ -7032,21 +7032,21 @@ function I11010 takes location III101 returns boolean
 			call Sleep(.8)
 		endif
 	endif
-	if O1OIO1 != null then
+	if tmpUnit != null then
 		call RemoveLocation(I110I0)
 		set I110I0 = null
 		if OI001 == 1 then
-			set I110I0 = OOO1I(O1OIO1, OII11)
+			set I110I0 = OOO1I(tmpUnit, OII11)
 			call I10111(IIIO1, I110I0, I110O0)
 			call Sleep(I11I10)
 		endif
 		if OI001 == 2 then
-			set I110I0 = OOO1I(O1OIO1, 200)
+			set I110I0 = OOO1I(tmpUnit, 200)
 			call I10111(IIIO1, I110I0, 27)
 			call Sleep(.293)
 		endif
 	endif
-	set O1OIO1 = null
+	set tmpUnit = null
 	return true
 endfunction
 function I10IO0 takes nothing returns nothing
@@ -8506,7 +8506,7 @@ function IO00I0 takes nothing returns nothing
 	local integer i = 0
 	local integer IO00O0 =-1
 	local integer IO0I10 =-1
-	local unit O1OIO1 = null
+	local unit tmpUnit = null
 	local integer IO0I00 = 0
 	local integer IO0II0 = 0
 	loop
@@ -8514,13 +8514,13 @@ function IO00I0 takes nothing returns nothing
 		set IO00O0 = GetLastCommand()
 		set IO0I10 = GetLastData()
 		if IO00O0 == 1000 and IO0I10 >-1 and IO0I10 < 16 then
-			set O1OIO1 = O00I01(Player(IO0I10))
-			if O00O11(O1OIO1) then
+			set tmpUnit = O00I01(Player(IO0I10))
+			if O00O11(tmpUnit) then
 				call IO1OI("电脑托管成功!")
 			else
 				call IO1OI("电脑托管失败!!")
 			endif
-			set O1OIO1 = null
+			set tmpUnit = null
 		endif
 		if IO00O0 == 1001 then
 			call O00O01(IO0I10)
@@ -17040,8 +17040,8 @@ function main takes nothing returns nothing
 	local unit u
 	local group g
 	call PlaySoundAndDisplayText("StartMapAI zhensan AI ------ hello by uniqs.中文貌似会被忽略掉~~~")
-	call I00O0I(1211117624, 600, 2.13, 20, 26, 1.25, 19, 15, 26, 3, 1093679159, 1093679157, 1093679169, 1093679155, 1093679177, 1, 6, "诸葛亮")
-	call I00O0I(1328558131, 100, 2., 27, 49, 2., 25, 20, 15, 1, 1093677361, 1093677138, 1093677123, 1093677121, 1096904043, 0, 0, "关羽")
+	call I00O0I(1211117624, 600, 2.13, 20, 26, 1.25, 19, 15, 26, 3, 1093679159, 1093679157, 1093679169, 1093679155, 1093679177, 1, 6, "ZhuGeLiang")
+	call I00O0I(1328558131, 100, 2., 27, 49, 2., 25, 20, 15, 1, 1093677361, 1093677138, 1093677123, 1093677121, 1096904043, 0, 0, "GuanYu")
 	call I00O0I(1328558130, 128, 1.9, 22, 32, 1.55, 25, 17, 15, 1, 1093678167, 1093677113, 1097688946, 1093677110, 1096904043, 0, 3, "张飞")
 	call I00O0I(1211117620, 100, 2.2, 25, 35, 2., 23, 20, 17, 1, 1093677633, 1093677378, 1093677124, 1093677128, 1096904043, 2, 0, "魏延")
 	call I00O0I(1160785968, 125, 1.85, 27, 49, 2.3, 22, 22, 16, 2, 1093678667, 1093677378, 1093677369, 1093677398, 1096904043, 2, 3, "赵云")
