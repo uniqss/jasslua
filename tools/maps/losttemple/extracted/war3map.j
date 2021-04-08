@@ -1437,7 +1437,9 @@ endfunction
 //***************************************************************************
 
 //===========================================================================
+// 中立敌对
 function CreateNeutralHostile takes nothing returns nothing
+    // 这就是传说中的【玩家13】
     local player p = Player(PLAYER_NEUTRAL_AGGRESSIVE)
     local unit u
     local integer unitID
@@ -1447,10 +1449,17 @@ function CreateNeutralHostile takes nothing returns nothing
     set u = CreateUnit( p, 'ngst', -722.2, 6573.3, 309.280 )
     call SetUnitState( u, UNIT_STATE_MANA, 0 )
     set t = CreateTrigger(  )
+    // 下面的代码看起来，貌似 EVENT_UNIT_DEATH 和 EVENT_UNIT_CHANGE_OWNER 一般是一起用的，应该是有技能能把敌方单位变成己方单位，这时候也是要掉落的
+    // 这里有个问题，如果单位被 change owner了，是不是unit就变了？否则如果该单位再死亡时，是不是又要触发一次掉落？
+    // 注意，整个LostTemple的脚本中，没有用到 TriggerAddCondition 
+    // 他这里的 Drop 的实现，有他的苦衷，WAR3 的整个地图都是在地图编辑器里面实现的，那个年代没有【策划配置表】一说。如果有【策划配置表】，应该配表，脚本可以简单很多
+    // 如果用Lua实现的话，C++部分做成可以动态加载的数据，Lua部分可以直接生成Lua代码也就可以动态加载了
     call TriggerRegisterUnitEvent( t, u, EVENT_UNIT_DEATH )
     call TriggerRegisterUnitEvent( t, u, EVENT_UNIT_CHANGE_OWNER )
     call TriggerAddAction( t, function Unit000027_DropItems )
     set u = CreateUnit( p, 'ngnb', -44.6, 2265.7, 99.763 )
+    // 如果有配置表，这个 SetUnitAcquireRange 也可以放到配置表里。
+    // 事实上如果有配置表，整个创建的单位、坐标信息、初始buff这些逻辑，都可以放到配置表里，但是这样没有他的脚本体系灵活
     call SetUnitAcquireRange( u, 200.0 )
     set u = CreateUnit( p, 'ngna', 75.9, 2168.8, 110.350 )
     call SetUnitAcquireRange( u, 200.0 )
@@ -1793,6 +1802,7 @@ function CreateNeutralHostile takes nothing returns nothing
 endfunction
 
 //===========================================================================
+// 中立建筑(不敌对)
 function CreateNeutralPassiveBuildings takes nothing returns nothing
     local player p = Player(PLAYER_NEUTRAL_PASSIVE)
     local unit u
@@ -1800,6 +1810,7 @@ function CreateNeutralPassiveBuildings takes nothing returns nothing
     local trigger t
     local real life
 
+    // 这个貌似是金矿 ngol 全称是： Gold Mine
     set u = CreateUnit( p, 'ngol', -7360.0, 7296.0, 270.000 )
     call SetResourceAmount( u, 12500 )
     set u = CreateUnit( p, 'ngol', 1856.0, -7360.0, 270.000 )
@@ -1818,21 +1829,32 @@ function CreateNeutralPassiveBuildings takes nothing returns nothing
     call SetResourceAmount( u, 12500 )
     set u = CreateUnit( p, 'ngol', -3776.0, -7488.0, 270.000 )
     call SetResourceAmount( u, 12500 )
+    // 根据位置判定，(-64,-64)是接近地图中心点(0,0)的，应该是生命之泉，全称叫做 Fountain of Health
     set u = CreateUnit( p, 'nfoh', -64.0, -64.0, 270.000 )
+    // 这个不知道是什么东东，LOSTTEMPLE上面两个商店，两个地精商店，ngme和ngad其中一个应该是商店，另一个是地精商店
+    // LostTemple左下右上为商店，右上左下为地精商店，所以ngme为商店，ngad为地精商店
+    // 商店 ngme 全称： Goblin Merchant
     set u = CreateUnit( p, 'ngme', -5376.0, -4288.0, 270.000 )
     set u = CreateUnit( p, 'ngme', 5568.0, 3456.0, 270.000 )
+
     set u = CreateUnit( p, 'ngol', -7360.0, -7488.0, 270.000 )
     call SetResourceAmount( u, 12500 )
     set u = CreateUnit( p, 'ngol', 7168.0, 7168.0, 270.000 )
     call SetResourceAmount( u, 12500 )
+
+    // 地精商店 ngad 全称：  Goblin Laboratory
     set u = CreateUnit( p, 'ngad', -2752.0, 4544.0, 270.000 )
+
     set u = CreateUnit( p, 'ngol', -1024.0, 6912.0, 270.000 )
     call SetResourceAmount( u, 12500 )
+
+    // 地精商店 ngad 全称：  Goblin Laboratory
     set u = CreateUnit( p, 'ngad', 2848.0, -4992.0, 270.000 )
 endfunction
 
 //===========================================================================
 function CreatePlayerBuildings takes nothing returns nothing
+    // 这里很奇怪，每个种族的大厅是怎么被创建出来的？而且每个种族的大厅是不一样的，还有金矿也是不一样的
 endfunction
 
 //===========================================================================
@@ -1959,6 +1981,7 @@ endfunction
 
 //===========================================================================
 function main takes nothing returns nothing
+    // 从这个函数看，WAR3的地图应该是中心为0，0，左下角为(-7936,-8192)，右上角为(7936,7680)这种格局，所以上面(-64,-64)位置处，应该是生命之泉
     call SetCameraBounds( -7936.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), -8192.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM), 7936.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), 7680.0 - GetCameraMargin(CAMERA_MARGIN_TOP), -7936.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), 7680.0 - GetCameraMargin(CAMERA_MARGIN_TOP), 7936.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), -8192.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM) )
     call SetDayNightModels( "Environment\\DNC\\DNCLordaeron\\DNCLordaeronTerrain\\DNCLordaeronTerrain.mdl", "Environment\\DNC\\DNCLordaeron\\DNCLordaeronUnit\\DNCLordaeronUnit.mdl" )
     call NewSoundEnvironment( "Default" )
