@@ -31,3 +31,12 @@ i64 = I('asdfqwer')
 print(i64)
 s64 = S(i64)
 print(s64)
+
+local hello = require("hello.lua")
+local world = hello.world()
+print(world)
+
+
+sworld = S(world)
+print(sworld)
+

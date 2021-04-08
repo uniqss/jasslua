@@ -356,6 +356,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\bin\config.lua" />
+    <None Include="..\bin\hello.lua" />
     <None Include="..\bin\player_script.lua" />
     <None Include="..\bin\prelude_script.lua" />
     <None Include="..\bin\test2.lua" />
