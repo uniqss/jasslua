@@ -3,7 +3,7 @@ local Module = {}
 print(" helo.lua begin ============================")
 
 function Module.world()
-	ret = 1234
+	ret = I('qwerqwer')
 	return ret
 end
 

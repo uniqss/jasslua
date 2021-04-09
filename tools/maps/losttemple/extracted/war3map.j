@@ -1903,8 +1903,18 @@ endfunction
 
 //===========================================================================
 function InitTrig_Melee_Initialization takes nothing returns nothing
-    set gg_trg_Melee_Initialization = CreateTrigger(  )
-    call TriggerAddAction( gg_trg_Melee_Initialization, function Trig_Melee_Initialization_Actions )
+    if 1 == 1 then
+        // 这虽然是一个trigger，但是即没有 event 也没有 condition 只有 action
+        // 该 trigger 会在后面 RunInitializationTriggers 的时候主动 fire 一次，相当于 event 被触发了。而这个 trigger 没有condition，所以只要 ConditionalTriggerExecute调一下，就直接action了
+        // 如果这个函数直接使用call不能正常执行的话，只能说明他的trigger是使用的类似时间轮的实现，把每个trigger放到齿里面，从而保证不会卡帧不会多客户端计算不同
+        // 上面明显不卡顿，下面明显会卡顿
+        set gg_trg_Melee_Initialization = CreateTrigger(  )
+        call TriggerAddAction( gg_trg_Melee_Initialization, function Trig_Melee_Initialization_Actions )
+    else 
+        // 这样也是OK的，直接在这里就调trigger的action了。但是进去的瞬间貌似会卡一下，因为这个函数里面执行的逻辑实在有点多。卡渲染帧说明trigger还有每帧只进行一定数量计算的功能
+        call Trig_Melee_Initialization_Actions()
+    endif
+
 endfunction
 
 //===========================================================================
@@ -1914,6 +1924,7 @@ endfunction
 
 //===========================================================================
 function RunInitializationTriggers takes nothing returns nothing
+    // ConditionalTriggerExecute 这样就可以主动触发一次event.如果condition满足，则执行action.
     call ConditionalTriggerExecute( gg_trg_Melee_Initialization )
 endfunction
 

@@ -34,9 +34,11 @@ print(s64)
 
 local hello = require("hello")
 local world = hello.world()
+print("world is:")
 print(world)
 
 
 sworld = S(world)
+print("sworld is:")
 print(sworld)
 
