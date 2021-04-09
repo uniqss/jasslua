@@ -1859,6 +1859,7 @@ endfunction
 
 //===========================================================================
 function CreatePlayerUnits takes nothing returns nothing
+    // 这里也很奇怪，PlayerUnits里面应该是有农民的，这些农民是怎么创建出来的？不同的种族又是怎么区分开的？
 endfunction
 
 //===========================================================================
@@ -1881,13 +1882,22 @@ endfunction
 // Default melee game initialization for all players
 //===========================================================================
 function Trig_Melee_Initialization_Actions takes nothing returns nothing
+    // blizzard.j 里面   设置战争迷雾
     call MeleeStartingVisibility(  )
+    // blizzard.j 里面   设置起始英雄数量限制
     call MeleeStartingHeroLimit(  )
+    // blizzard.j 里面   注册一个 EVENT_PLAYER_UNIT_TRAIN_FINISH 事件，train finish 完事以后，给个 stwp (回程卷轴)
     call MeleeGrantHeroItems(  )
+    // blizzard.j 里面  设置玩家的初始 gold / lumber
     call MeleeStartingResources(  )
+    // blizzard.j 里面  这里取巧了，开始把每个玩家的位置上都创建一坨中立敌对的单位，然后到这一步判定是不是玩家，如果是玩家，则
+    // 把该位置方圆n米内的 PLAYER_NEUTRAL_AGGRESSIVE 清掉，并把 PLAYER_NEUTRAL_PASSIVE 的 not UNIT_TYPE_STRUCTURE 也清掉
     call MeleeClearExcessUnits(  )
+    // blizzard.j 里面  这个函数 会创建不同的 Town Hall 以及 Peasant
     call MeleeStartingUnits(  )
+    // blizzard.j 里面  如果是电脑操作的话，创建不同的种族的AI
     call MeleeStartingAI(  )
+    // blizzard.j 里面  初始化胜利失败等，以及胜利失败后会发生的一坨一坨的事件（弹框啦、等待啦、结算各方积分啦等等等等......）
     call MeleeInitVictoryDefeat(  )
 endfunction
 

@@ -32,7 +32,7 @@ print(i64)
 s64 = S(i64)
 print(s64)
 
-local hello = require("hello.lua")
+local hello = require("hello")
 local world = hello.world()
 print(world)
 
