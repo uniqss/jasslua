@@ -361,6 +361,7 @@
     <None Include="..\bin\prelude_script.lua" />
     <None Include="..\bin\test2.lua" />
     <None Include="..\bin\test_globals.lua" />
+    <None Include="..\bin\test_math.lua" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

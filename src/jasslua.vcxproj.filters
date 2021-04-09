@@ -628,5 +628,6 @@
     <None Include="..\bin\test2.lua" />
     <None Include="..\bin\test_globals.lua" />
     <None Include="..\bin\hello.lua" />
+    <None Include="..\bin\test_math.lua" />
   </ItemGroup>
 </Project>
