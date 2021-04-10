@@ -29,6 +29,7 @@ endfunction
 //*
 //***************************************************************************
 
+// drop系列，，这里可以看出这种drop有点累赘，总共2000行的代码，Drop占掉1300行 65%
 function Unit000005_DropItems takes nothing returns nothing
     local widget  trigWidget = null
     local unit    trigUnit   = null
