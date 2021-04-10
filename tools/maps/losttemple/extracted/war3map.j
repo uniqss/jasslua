@@ -1896,7 +1896,7 @@ function Trig_Melee_Initialization_Actions takes nothing returns nothing
     call MeleeClearExcessUnits(  )
     // blizzard.j 里面  这个函数 会创建不同的 Town Hall 以及 Peasant
     call MeleeStartingUnits(  )
-    // blizzard.j 里面  如果是电脑操作的话，创建不同的种族的AI
+    // blizzard.j 里面  如果是电脑操作的话，创建不同的种族的AI "human.ai" "orc.ai" "undead.ai" "elf.ai" StartMeleeAI 这个在c++实现的
     call MeleeStartingAI(  )
     // blizzard.j 里面  初始化胜利失败等，以及胜利失败后会发生的一坨一坨的事件（弹框啦、等待啦、结算各方积分啦等等等等......）
     call MeleeInitVictoryDefeat(  )
