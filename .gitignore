@@ -1,9 +1,10 @@
-/src/x64
 /.vs
-*.ilk
-*.iobj
-*.ipdb
-*.pdb
 /tools/transglobal/.vs
 /tools/transglobal/Debug
 /tools/transglobal/x64
+/bin
+!/bin/script/*.lua
+!/bin/data/*.csv
+/build/*
+/.vscode/*
+
