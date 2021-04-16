@@ -22,7 +22,7 @@ void jass_luastate::init()
 		= package_path + (!package_path.empty() ? ";" : "") + test::scripts_path("proc/valid/") + "?.lua";
 		*/
 	const std::string package_path = luastate["package"]["path"];
-	luastate["package"]["path"] = package_path + (!package_path.empty() ? ";" : "") + "./?.lua";
+	luastate["package"]["path"] = package_path + (!package_path.empty() ? ";" : "") + "./?.lua;../script/?.lua";
 
 	jass_types::jasslua_regist_types(luastate);
 	jass_convert::jasslua_regist_convert(luastate);
