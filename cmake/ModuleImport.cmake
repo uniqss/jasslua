@@ -141,8 +141,8 @@ macro(LibImport ModuleName ModulePath)
     ENDIF()
 endmacro(LibImport)
 
-macro(DllImport ModuleName ModulePath)
-    MESSAGE(STATUS "DllImport ${ModuleName} ${ModulePath}")
+macro(DllImport ModuleName ModulePath ExcludeFileListRegex)
+    MESSAGE(STATUS "DllImport ${ModuleName} ${ModulePath} ${ExcludeFileListRegex}")
 
     IF (IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${ModulePath})
         ModuleInclude(${ModuleName} ${ModulePath})
@@ -158,6 +158,10 @@ macro(DllImport ModuleName ModulePath)
         )
 
         LIST(FILTER LIB_SOURCES EXCLUDE REGEX "${CMAKE_CURRENT_SOURCE_DIR}/${ModulePath}/tpl/*")
+
+        FOREACH(tmpFile ${ExcludeFileListRegex})
+            LIST(FILTER LIB_SOURCES EXCLUDE REGEX ${tmpFile})
+        ENDFOREACH(tmpFile)
 
         IF (WIN32)
             LIST(APPEND LIB_SOURCES)

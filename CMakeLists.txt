@@ -17,5 +17,7 @@ MESSAGE(STATUS "VERSION: ${JASSLUA_VERSION}")
 OPTION(USE_JASSLUA "use jasslua" OFF)
 
 LibImport("jasslua" "src/jasslua")
-LibImport("lua53" "src/lua53")
-ExeImport("test" "jasslua;lua53")
+
+LIST(APPEND ExcludeFileListRegex "lua.c$" "luac.c$" "wmain.c$")
+DllImport("lua53" "src/lua53" "${ExcludeFileListRegex}")
+# ExeImport("test" "jasslua;lua53")
