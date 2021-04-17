@@ -171,6 +171,40 @@ macro(DllImport ModuleName ModulePath ExcludeFileListRegex)
     ENDIF()
 endmacro(DllImport)
 
+macro(DllImport3 ModuleName ModulePath ExcludeFileListRegex CompileFlagsList)
+    MESSAGE(STATUS "DllImport3 ${ModuleName} ${ModulePath} ${ExcludeFileListRegex} ${CompileFlagsList}")
+    INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/${ModulePath})
+    FILE(GLOB DLL_SOURCES
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h
+
+        ${CMAKE_CURRENT_SOURCE_DIR}/${ModulePath}/*.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/${ModulePath}/*.cc
+        ${CMAKE_CURRENT_SOURCE_DIR}/${ModulePath}/*.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/${ModulePath}/*.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/${ModulePath}/*.h
+    )
+
+    FOREACH(tmpFile ${ExcludeFileListRegex})
+        LIST(FILTER DLL_SOURCES EXCLUDE REGEX ${tmpFile})
+    ENDFOREACH(tmpFile)
+
+    ADD_LIBRARY(${ModuleName} SHARED ${DLL_SOURCES})
+    
+    IF (NOT ${CompileFlagsList} STREQUAL "")
+        SET_TARGET_PROPERTIES(${ModuleName} PROPERTIES COMPILE_FLAGS ${CompileFlagsList})
+    ENDIF()
+
+    IF (WIN32)
+    ELSEIF (APPLE)
+        SET_TARGET_PROPERTIES(${ModuleName} PROPERTIES COMPILE_FLAGS "-Wl,-undefined -Wl,dynamic_lookup")
+        SET_TARGET_PROPERTIES(${ModuleName} PROPERTIES PREFIX "")
+        SET_TARGET_PROPERTIES(${ModuleName} PROPERTIES SUFFIX ".so")
+    ELSEIF (UNIX)
+        SET_TARGET_PROPERTIES(${ModuleName} PROPERTIES COMPILE_FLAGS "-Wl,-E")
+    ENDIF ()
+endmacro(DllImport3)
+
 macro(LibImportDepends ModuleName ModulePath DependsLib)
     MESSAGE(STATUS "LibImportDepends ${ModuleName} ${ModulePath} ${DependsLib}")
 

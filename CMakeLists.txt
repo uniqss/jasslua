@@ -19,5 +19,23 @@ OPTION(USE_JASSLUA "use jasslua" OFF)
 LibImport("jasslua" "src/jasslua")
 
 LIST(APPEND ExcludeFileListRegex "lua.c$" "luac.c$" "wmain.c$")
-DllImport("lua53" "src/lua53" "${ExcludeFileListRegex}")
-# ExeImport("test" "jasslua;lua53")
+DllImport3("lua53" "src/lua53" "${ExcludeFileListRegex}" "-DLUA_BUILD_AS_DLL -DLUA_CORE")
+
+ExeImport("test" "jasslua;lua53")
+
+#ADD_CUSTOM_COMMAND(
+#TARGET jassluatest
+#PRE_BUILD
+#COMMAND ${CMAKE_COMMAND} -E copy_if_different
+#${CMAKE_CURRENT_SOURCE_DIR}/config/test.csv
+#$<TARGET_FILE_DIR:jassluatest>
+#)
+
+#INSTALL(DIRECTORY include/ DESTINATION include)
+#INSTALL(TARGETS jasslua
+#        RUNTIME DESTINATION bin
+#        LIBRARY DESTINATION lib
+#        ARCHIVE DESTINATION lib)
+
+#SET(JASSLUA_LIBS "jasslua")
+#MARK_AS_ADVANCED(${JASSLUA_LIBS})
