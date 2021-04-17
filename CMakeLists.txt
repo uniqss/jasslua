@@ -16,6 +16,6 @@ MESSAGE(STATUS "VERSION: ${JASSLUA_VERSION}")
 
 OPTION(USE_JASSLUA "use jasslua" OFF)
 
-LibImport("jasslua_module" "src/jasslua")
+LibImport("jasslua" "src/jasslua")
 LibImport("lua53" "src/lua53")
-ExeImport("test" "jasslua_module;lua53")
+ExeImport("test" "jasslua;lua53")
