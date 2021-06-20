@@ -1,0 +1,52 @@
+common.j
+    总共：2461行
+    已完成：
+    Native types                    完成
+    globals                         完成
+    MathAPI                         完成
+    String Utility API              完成
+    Map Setup API                   
+    Timer API                       
+    Group API                       
+    Force API                       
+    Region and Location API         
+    Native trigger interface        
+    Boolean Expr API                
+    Trigger Game Event API          
+    Trigger Player Based Event API  
+    Trigger Unit Based Event API    
+    Widget API                      
+    Destructable Object API         
+    Item API                        
+    Unit API                        
+    Player API                      
+    Fog of War API                  
+    Game API                        
+    Campaign API                    
+    Dialog API                      不支持
+    Randomization API               
+    Visual API                      
+    Trackable API                   
+    Quest API                       不支持
+    Timer Dialog API                不支持
+    Leaderboard API                 
+    Multiboard API                  
+    Camera API                      
+    Sound API                       不支持
+    Effects API                     
+    Terrain API                     
+    Image API                       
+    Ubersplat API                   
+    Blight API                      
+    Doodad API                      
+    Computer AI interface           
+
+
+blizzard.j
+    总共：9733行
+    已完成：
+
+common.ai
+    总共：2583行
+    已完成：
+

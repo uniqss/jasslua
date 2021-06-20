@@ -21,7 +21,7 @@ LibImport("jasslua" "src/jasslua")
 LIST(APPEND ExcludeFileListRegex "lua.c$" "luac.c$" "wmain.c$")
 DllImport3("lua53" "src/lua53" "${ExcludeFileListRegex}" "-DLUA_BUILD_AS_DLL -DLUA_CORE")
 
-ExeImport("test" "jasslua;lua53")
+#ExeImport("test" "jasslua;lua53")
 
 #ADD_CUSTOM_COMMAND(
 #TARGET jassluatest

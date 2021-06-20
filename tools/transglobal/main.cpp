@@ -1,4 +1,4 @@
-#include <fstream>
+Ôªø#include <fstream>
 #include <string>
 #include <unordered_set>
 using namespace std;
@@ -94,12 +94,12 @@ continue;
 		}
 
 		// global
-		// ø’––
+		// Á©∫Ë°å
 		if (line.size() == 0 || line == "\r" || line == "\r\n" || line == "\n")
 		{
 			OFS_FULL_LINE_CONTINUE;
 		}
-		// ◊¢ Õ¥¶¿Ì
+		// Ê≥®ÈáäÂ§ÑÁêÜ
 		string::size_type idx = 0;
 		for (idx = 0; idx < line.size(); ++idx)
 		{
@@ -114,7 +114,7 @@ continue;
 		}
 
 
-		// ’“µΩconstantµƒΩ·Œ≤
+		// ÊâæÂà∞constantÁöÑÁªìÂ∞æ
 		string constant = "constant";
 		posConstantBegin = line.find(constant);
 		if (posConstantBegin == string::npos)
