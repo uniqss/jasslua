@@ -44,7 +44,8 @@ ADD_LIBRARY(${PNAME} SHARED ${project_src_cpp} ${project_src_h} ${project_includ
 
 SET(EXTRALIBS "")
 if (${MSVC})
-    SET(EXTRALIBS "Iphlpapi")
+    #SET(EXTRALIBS "Iphlpapi")
 endif()
 
 #TARGET_LINK_LIBRARIES(${PNAME} PUBLIC ${LIB_event} ${LIB_core} ${LIB_extra} ${EXTRALIBS})
+TARGET_LINK_LIBRARIES(${PNAME} PUBLIC ${EXTRALIBS})
