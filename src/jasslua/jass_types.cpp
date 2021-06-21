@@ -1,4 +1,4 @@
-#include "jass_types.h"
+ï»¿#include "jass_types.h"
 
 #include "handle.h"
 #include "event.h"
@@ -106,7 +106,7 @@
 void jass_types::jasslua_regist_types(sol::state_view lua)
 {
 	lua.new_usertype<handle>("handle",
-		//"i", &handle::i  Èç¹ûÓĞĞèÒª£¬µ¥¶À¼Ó¸ö set_i º¯Êı
+		//"i", &handle::i  å¦‚æœæœ‰éœ€è¦ï¼Œå•ç‹¬åŠ ä¸ª set_i å‡½æ•°
 		"i", sol::readonly(&handle::i)
 		);
 
