@@ -1,4 +1,3 @@
-rm -rf bin
 
 cd projects
 

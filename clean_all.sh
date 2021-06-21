@@ -1,5 +1,4 @@
 #!/bin/bash
-rm -rf bin
 
 cd projects
 
