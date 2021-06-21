@@ -1,63 +1,20 @@
 #!/bin/bash
 
-# - install depends tools
-# yum -y install git
-# yum -y install gcc gcc-c++ autoconf libtool automake make
-#
-
-
-
 cd projects
 
-
-cd libevent
+cd lua53
 sh build.sh
 cd ..
+echo "build lua53 done ==========================================================================="
 
-echo "build libevent done ==========================================================================="
 
-
-cd uniqsnet_libevent
+cd jasslua
 sh build.sh
 cd ..
+echo "build jasslua done ==========================================================================="
 
-echo "build uniqsnet_libevent done ==========================================================================="
 
-
-cd unet_test_s
+cd jassluatest
 sh build.sh
 cd ..
-
-echo "build unet_test_s done ==========================================================================="
-
-
-cd unet_test_c
-sh build.sh
-cd ..
-
-echo "build unet_test_c done ==========================================================================="
-
-
-cd mysqlconnectorc
-sh build.sh
-cd ..
-
-echo "build mysqlconnectorc done ==========================================================================="
-
-
-cd uniqsdb
-sh build.sh
-cd ..
-
-echo "build uniqsdb done ==========================================================================="
-
-
-cd udb_test
-sh build.sh
-cd ..
-
-echo "build udb_test done ==========================================================================="
-
-
-
-# echo continue && read -n 1
+echo "build jassluatest done ==========================================================================="

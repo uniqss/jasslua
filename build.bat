@@ -2,27 +2,19 @@
 
 cd projects
 
-
 pushd lua53
 call build.bat
 popd
-
 echo "build lua53 done ==========================================================================="
 
 
-cd jasslua
+pushd jasslua
 call build.bat
-cd ..
-
+popd
 echo "build jasslua done ==========================================================================="
 
 
-cd jassluatest
+pushd jassluatest
 call build.bat
-cd ..
-
+popd
 echo "build jassluatest done ==========================================================================="
-
-
-
-rem pause
