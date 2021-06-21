@@ -5,20 +5,59 @@
 # yum -y install gcc gcc-c++ autoconf libtool automake make
 #
 
-# pushd thirdparty/depends_path
-# libtoolize && aclocal && autoheader && autoconf && automake --add-missing
-# sh configure
-# popd
 
-rm -rf build
-mkdir -p build
-pushd build
 
-cmake -DCMAKE_BUILD_TYPE=relwithdebinfo ..
-cmake --build . --config relwithdebinfo
+cd projects
 
-popd
 
-# popd
+cd libevent
+sh build.sh
+cd ..
+
+echo "build libevent done ==========================================================================="
+
+
+cd uniqsnet_libevent
+sh build.sh
+cd ..
+
+echo "build uniqsnet_libevent done ==========================================================================="
+
+
+cd unet_test_s
+sh build.sh
+cd ..
+
+echo "build unet_test_s done ==========================================================================="
+
+
+cd unet_test_c
+sh build.sh
+cd ..
+
+echo "build unet_test_c done ==========================================================================="
+
+
+cd mysqlconnectorc
+sh build.sh
+cd ..
+
+echo "build mysqlconnectorc done ==========================================================================="
+
+
+cd uniqsdb
+sh build.sh
+cd ..
+
+echo "build uniqsdb done ==========================================================================="
+
+
+cd udb_test
+sh build.sh
+cd ..
+
+echo "build udb_test done ==========================================================================="
+
+
 
 # echo continue && read -n 1

@@ -1,9 +1,28 @@
+@echo off
 
-rmdir /S /Q build
-mkdir build
-pushd build
-cmake -A x64 -DCMAKE_BUILD_TYPE=relwithdebinfo ..
-cmake --build . --config relwithdebinfo
+cd projects
+
+
+pushd lua53
+call build.bat
 popd
+
+echo "build lua53 done ==========================================================================="
+
+
+cd jasslua
+call build.bat
+cd ..
+
+echo "build jasslua done ==========================================================================="
+
+
+cd jassluatest
+call build.bat
+cd ..
+
+echo "build jassluatest done ==========================================================================="
+
+
 
 rem pause
